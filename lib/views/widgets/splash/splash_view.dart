@@ -2,12 +2,15 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:kitchenary/controllers/settings_controller.dart';
 import 'package:kitchenary/core/constants/app_constants.dart';
 import 'package:kitchenary/core/extensions/context_extensions.dart';
 import 'package:kitchenary/core/navigation/app_navigation.dart';
 import 'package:kitchenary/views/widgets/common/brand_logo.dart';
+import 'package:provider/provider.dart';
 
-/// Logo, name and tagline; moves on to Home after a short pause.
+/// Logo, name and tagline; moves on after a short pause: to Home, or to the
+/// welcome pages on the very first launch.
 class SplashView extends StatefulWidget {
   const SplashView({super.key});
 
@@ -23,7 +26,11 @@ class _SplashViewState extends State<SplashView> {
     super.initState();
     _timer = Timer(AppConstants.splashDuration, () {
       if (!mounted) return;
-      context.goHome();
+      if (context.read<SettingsController>().onboardingDone) {
+        context.goHome();
+      } else {
+        context.goOnboarding();
+      }
     });
   }
 

@@ -19,7 +19,11 @@ class Recipe {
     this.videoUrl = '',
     this.sourceUrl = '',
     this.isSummary = false,
+    this.customDiet,
   });
+
+  /// Id prefix of recipes the user wrote themselves.
+  static const String ownPrefix = 'own_';
 
   final String id;
   final String title;
@@ -33,12 +37,20 @@ class Recipe {
   final String sourceUrl;
   final bool isSummary;
 
+  /// Set by the user for their own recipes; overrides the inferred diet.
+  final DietType? customDiet;
+
+  /// True for recipes written by the user (stored only on this device).
+  bool get isOwn => id.startsWith(ownPrefix);
+
   bool get hasSteps => steps.isNotEmpty;
   bool get hasVideo => videoUrl.isNotEmpty;
   bool get hasSourceUrl => sourceUrl.isNotEmpty;
 
   /// "Indian cuisine", or "TheMealDB" when the cuisine is unknown.
-  String get sourceLabel => area.isNotEmpty && area.toLowerCase() != 'unknown'
+  String get sourceLabel => isOwn
+      ? 'My recipe'
+      : area.isNotEmpty && area.toLowerCase() != 'unknown'
       ? '$area cuisine'
       : 'TheMealDB';
 
@@ -54,6 +66,8 @@ class Recipe {
   /// Inferred from the recipe category; recipes in other categories
   /// (Pasta, Dessert, Side...) are reported as [DietType.unknown].
   DietType get diet {
+    final custom = customDiet;
+    if (custom != null) return custom;
     final c = category.toLowerCase();
     if (c == 'vegan') return DietType.vegan;
     if (c == 'vegetarian') return DietType.vegetarian;
@@ -174,6 +188,7 @@ class Recipe {
         videoUrl: json['videoUrl'] as String? ?? '',
         sourceUrl: json['sourceUrl'] as String? ?? '',
         isSummary: json['isSummary'] as bool? ?? false,
+        customDiet: DietType.values.asNameMap()[json['customDiet'] as String?],
       );
 
   Map<String, dynamic> toJson() => {
@@ -188,5 +203,6 @@ class Recipe {
         'videoUrl': videoUrl,
         'sourceUrl': sourceUrl,
         'isSummary': isSummary,
+        if (customDiet != null) 'customDiet': customDiet!.name,
       };
 }

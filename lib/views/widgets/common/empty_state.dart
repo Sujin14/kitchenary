@@ -8,6 +8,7 @@ class EmptyState extends StatelessWidget {
     required this.icon,
     required this.title,
     required this.message,
+    this.action,
     super.key,
   });
 
@@ -15,9 +16,13 @@ class EmptyState extends StatelessWidget {
   final String title;
   final String message;
 
+  /// Optional button shown under the message.
+  final Widget? action;
+
   @override
   Widget build(BuildContext context) {
     final p = context.palette;
+    final action = this.action;
     return Center(
       child: Padding(
         padding: EdgeInsets.all(32.r),
@@ -39,6 +44,7 @@ class EmptyState extends StatelessWidget {
               ),
               textAlign: TextAlign.center,
             ),
+            if (action != null) ...[SizedBox(height: 20.h), action],
           ],
         ),
       ),

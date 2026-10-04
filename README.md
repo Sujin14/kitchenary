@@ -9,7 +9,7 @@ Learn it. Shop it. Cook it. A free Android cooking companion for India.
 | M0 | Foundation: theme (light and dark), routing, Provider, fonts, icon | done |
 | M1 | Recipes: TheMealDB search, categories, details, random recipe | done |
 | M1.1 | go_router, flutter_screenutil, shimmer skeletons | done |
-| M2 | Save, history, own recipes, profile, onboarding, legal pages | next |
+| M2 | Save, history, own recipes, profile, onboarding, legal pages | built, needs testing |
 | M3 | Cooking mode, ingredient scaler | planned |
 | M4 | Timers and local notifications | planned |
 | M5 | Shopping list and grocery app links | planned |
@@ -18,7 +18,8 @@ Learn it. Shop it. Cook it. A free Android cooking companion for India.
 ## Libraries
 
 `provider` (state), `go_router` (navigation), `flutter_screenutil` (responsive sizes),
-`shimmer` (skeleton loading), `cached_network_image`, `http`, `url_launcher`.
+`shimmer` (skeleton loading), `hive_ce` + `hive_ce_flutter` (on-device storage),
+`cached_network_image`, `http`, `url_launcher`.
 
 ## First run
 
@@ -33,6 +34,19 @@ From this folder:
 `flutter create` adds the `android/` folder. It may also add
 `test/widget_test.dart` (a sample test for a different app): delete that file.
 If it changed `lib/main.dart` or `pubspec.yaml`, restore ours from the zip.
+
+## Before publishing
+
+- Replace `AppConstants.supportEmail` (shown in the Privacy Policy and Terms).
+- Have a lawyer review `lib/core/constants/legal_content.dart`, publish the same
+  Privacy Policy at a public URL (Play Console asks for a link), and re-read it
+  whenever a feature that touches data or permissions is added.
+
+## On-device data
+
+Saved recipes, history, your own recipes and settings are stored with Hive as
+JSON strings (`LocalStore` interface, `HiveLocalStore` implementation). Nothing
+leaves the phone. "Erase my data" on the Profile screen clears it all.
 
 ## Recipe data
 

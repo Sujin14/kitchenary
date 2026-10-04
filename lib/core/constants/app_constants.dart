@@ -8,6 +8,19 @@ abstract final class AppConstants {
 
   /// Maximum recipes shown in one feed.
   static const int feedLimit = 24;
+
+  /// Recently viewed recipes kept on the device.
+  static const int historyLimit = 30;
+
+  /// Shown on the Profile screen. Keep in sync with `pubspec.yaml`.
+  static const String appVersion = '1.0.0';
+
+  /// Name of the on-device database box.
+  static const String storageBox = 'kitchenary';
+
+  /// REPLACE before publishing: shown in the Privacy Policy and Terms, and
+  /// must be an inbox you read. Play Store review checks it.
+  static const String supportEmail = 'REPLACE_WITH_YOUR_EMAIL@example.com';
 }
 
 /// Asset paths. Keep in sync with `pubspec.yaml`.

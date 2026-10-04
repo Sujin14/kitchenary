@@ -5,8 +5,9 @@ import 'package:kitchenary/models/recipe.dart';
 import 'package:kitchenary/views/widgets/common/circle_icon_button.dart';
 import 'package:kitchenary/views/widgets/common/diet_mark.dart';
 import 'package:kitchenary/views/widgets/common/recipe_image.dart';
+import 'package:kitchenary/views/widgets/recipe/save_recipe_button.dart';
 
-/// Hero photo with a back button and the veg / non-veg mark.
+/// Hero photo with back and save buttons and the veg / non-veg mark.
 class RecipeDetailsHeader extends StatelessWidget {
   const RecipeDetailsHeader({required this.recipe, super.key});
 
@@ -29,6 +30,11 @@ class RecipeDetailsHeader extends StatelessWidget {
               tooltip: 'Back',
               onPressed: () => context.popOrHome(),
             ),
+          ),
+          Positioned(
+            top: MediaQuery.paddingOf(context).top + 8.h,
+            right: 12.w,
+            child: SaveRecipeButton(recipe: recipe),
           ),
           Positioned(
             bottom: 12.h,

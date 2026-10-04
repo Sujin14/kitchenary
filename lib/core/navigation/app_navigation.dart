@@ -7,10 +7,24 @@ import 'package:kitchenary/models/recipe.dart';
 extension AppNavigation on BuildContext {
   void goHome() => GoRouter.of(this).go(AppRoutes.home);
 
+  void goOnboarding() => GoRouter.of(this).go(AppRoutes.onboarding);
+
+  void goMyRecipes() => GoRouter.of(this).go(AppRoutes.mine);
+
   /// Opens the details screen for [recipe]. The recipe is passed as `extra`
   /// so the screen can show its title and photo immediately.
   Future<void> openRecipe(Recipe recipe) =>
       GoRouter.of(this).push<void>(AppRoutes.recipe(recipe.id), extra: recipe);
+
+  /// Opens the recipe form: empty for a new recipe, filled for [existing].
+  Future<void> openRecipeEditor([Recipe? existing]) => existing == null
+      ? GoRouter.of(this).push<void>(AppRoutes.recipeNew)
+      : GoRouter.of(this).push<void>(AppRoutes.recipeEdit, extra: existing);
+
+  Future<void> openHistory() => GoRouter.of(this).push<void>(AppRoutes.history);
+
+  Future<void> openLegal(String slug) =>
+      GoRouter.of(this).push<void>(AppRoutes.legal(slug));
 
   /// Goes back, or to Home when there is nothing to go back to (deep link).
   void popOrHome() {

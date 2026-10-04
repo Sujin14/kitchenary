@@ -1,18 +1,29 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:kitchenary/controllers/history_controller.dart';
 import 'package:kitchenary/controllers/home_controller.dart';
+import 'package:kitchenary/controllers/own_recipes_controller.dart';
+import 'package:kitchenary/controllers/saved_recipes_controller.dart';
+import 'package:kitchenary/controllers/settings_controller.dart';
 import 'package:kitchenary/core/constants/app_constants.dart';
+import 'package:kitchenary/core/constants/storage_keys.dart';
 import 'package:kitchenary/core/navigation/app_router.dart';
 import 'package:kitchenary/core/theme/app_theme.dart';
+import 'package:kitchenary/services/local_store.dart';
 import 'package:kitchenary/services/mealdb_recipe_service.dart';
+import 'package:kitchenary/services/recipe_list_repository.dart';
 import 'package:kitchenary/services/recipe_service.dart';
+import 'package:kitchenary/services/settings_repository.dart';
 import 'package:kitchenary/services/url_launcher_service.dart';
 import 'package:provider/provider.dart';
 
 /// Root widget: wires services and controllers (Provider), screen scaling
 /// (ScreenUtil), routing (go_router) and the theme.
 class KitchenaryApp extends StatelessWidget {
-  const KitchenaryApp({super.key});
+  const KitchenaryApp({required this.store, super.key});
+
+  /// The opened on-device store (see `HiveLocalStore`).
+  final LocalStore store;
 
   /// Layout is designed at this size (logical pixels); everything scales.
   static const Size designSize = Size(390, 844);
@@ -30,6 +41,24 @@ class KitchenaryApp extends StatelessWidget {
           create: (_) => const UrlLauncherService(),
         ),
         // Controllers
+        ChangeNotifierProvider<SettingsController>(
+          create: (_) => SettingsController(SettingsRepository(store)),
+        ),
+        ChangeNotifierProvider<SavedRecipesController>(
+          create: (_) => SavedRecipesController(
+            RecipeListRepository(store, StorageKeys.savedRecipes),
+          ),
+        ),
+        ChangeNotifierProvider<HistoryController>(
+          create: (_) => HistoryController(
+            RecipeListRepository(store, StorageKeys.history),
+          ),
+        ),
+        ChangeNotifierProvider<OwnRecipesController>(
+          create: (_) => OwnRecipesController(
+            RecipeListRepository(store, StorageKeys.ownRecipes),
+          ),
+        ),
         ChangeNotifierProvider<HomeController>(
           create: (context) => HomeController(context.read<RecipeService>()),
         ),
@@ -43,7 +72,9 @@ class KitchenaryApp extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           theme: AppTheme.light,
           darkTheme: AppTheme.dark,
-          themeMode: ThemeMode.system,
+          themeMode: context.select<SettingsController, ThemeMode>(
+            (settings) => settings.themeMode,
+          ),
           routerConfig: AppRouter.router,
         ),
       ),

@@ -123,6 +123,39 @@ abstract final class AppTheme {
         backgroundColor: p.surface,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.r)),
       ),
+      navigationBarTheme: NavigationBarThemeData(
+        backgroundColor: p.surface,
+        indicatorColor: p.primarySoft,
+        surfaceTintColor: p.surface,
+        elevation: 0,
+        height: 68.h,
+        labelTextStyle: WidgetStateProperty.resolveWith(
+          (states) => textTheme.labelSmall?.copyWith(
+            color: states.contains(WidgetState.selected)
+                ? p.primary
+                : p.textSecondary,
+            fontWeight: states.contains(WidgetState.selected)
+                ? FontWeight.w700
+                : FontWeight.w500,
+          ),
+        ),
+        iconTheme: WidgetStateProperty.resolveWith(
+          (states) => IconThemeData(
+            color: states.contains(WidgetState.selected)
+                ? p.primary
+                : p.textSecondary,
+          ),
+        ),
+      ),
+      segmentedButtonTheme: SegmentedButtonThemeData(
+        style: SegmentedButton.styleFrom(
+          backgroundColor: p.surface,
+          foregroundColor: p.textSecondary,
+          selectedBackgroundColor: p.primarySoft,
+          selectedForegroundColor: p.primary,
+          side: BorderSide(color: p.outline),
+        ),
+      ),
       progressIndicatorTheme: ProgressIndicatorThemeData(color: p.primary),
     );
   }

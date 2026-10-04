@@ -7,12 +7,16 @@ class CircleIconButton extends StatelessWidget {
     required this.icon,
     required this.tooltip,
     required this.onPressed,
+    this.iconColor,
     super.key,
   });
 
   final IconData icon;
   final String tooltip;
   final VoidCallback? onPressed;
+
+  /// Defaults to the primary text colour.
+  final Color? iconColor;
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +26,7 @@ class CircleIconButton extends StatelessWidget {
       child: IconButton(
         tooltip: tooltip,
         icon: Icon(icon),
-        color: p.textPrimary,
+        color: iconColor ?? p.textPrimary,
         onPressed: onPressed,
       ),
     );

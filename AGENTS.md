@@ -23,6 +23,9 @@ TheMealDB, step-by-step cooking mode, timers, and links to grocery apps.
 3. **Navigation with `go_router`.** Routes live in `AppRouter`; widgets navigate
    through `context.openRecipe(...)`, `context.goHome()`, `context.popOrHome()`
    (`core/navigation/app_navigation.dart`) so they never import screens.
+3a. **Storage:** controllers use `RecipeListRepository` / `SettingsRepository`
+   on top of the `LocalStore` interface. Never import `hive` outside
+   `hive_local_store.dart`. Tests use `MemoryLocalStore`.
 4. **State** with `provider` only. No other state-management package.
 4a. **Sizing with `flutter_screenutil`:** use `.w` (width), `.h` (height),
    `.r` (radius, icon box, square sizes) and `.sp` (font size) for every size,
