@@ -1,9 +1,10 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:kitchenary/core/constants/app_constants.dart';
 import 'package:kitchenary/core/extensions/context_extensions.dart';
-import 'package:kitchenary/core/navigation/app_routes.dart';
+import 'package:kitchenary/core/navigation/app_navigation.dart';
 import 'package:kitchenary/views/widgets/common/brand_logo.dart';
 
 /// Logo, name and tagline; moves on to Home after a short pause.
@@ -22,7 +23,7 @@ class _SplashViewState extends State<SplashView> {
     super.initState();
     _timer = Timer(AppConstants.splashDuration, () {
       if (!mounted) return;
-      Navigator.of(context).pushReplacementNamed(AppRoutes.home);
+      context.goHome();
     });
   }
 
@@ -39,13 +40,13 @@ class _SplashViewState extends State<SplashView> {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          const BrandLogo(size: 112),
-          const SizedBox(height: 24),
+          BrandLogo(size: 112.r),
+          SizedBox(height: 24.h),
           Text(
             AppConstants.appName,
             style: context.textTheme.displayMedium?.copyWith(color: p.primary),
           ),
-          const SizedBox(height: 8),
+          SizedBox(height: 8.h),
           Text(
             AppConstants.tagline,
             style: context.textTheme.bodyLarge?.copyWith(

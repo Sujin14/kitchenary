@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:kitchenary/controllers/load_status.dart';
 import 'package:kitchenary/controllers/recipe_details_controller.dart';
 import 'package:kitchenary/views/widgets/common/error_state.dart';
-import 'package:kitchenary/views/widgets/common/loading_indicator.dart';
 import 'package:kitchenary/views/widgets/details/ingredient_section.dart';
 import 'package:kitchenary/views/widgets/details/instruction_section.dart';
 import 'package:kitchenary/views/widgets/details/recipe_details_header.dart';
+import 'package:kitchenary/views/widgets/details/recipe_details_skeleton.dart';
 import 'package:kitchenary/views/widgets/details/recipe_details_title.dart';
 import 'package:kitchenary/views/widgets/details/video_link_button.dart';
 import 'package:provider/provider.dart';
@@ -25,45 +26,37 @@ class RecipeDetailsBody extends StatelessWidget {
         children: [
           RecipeDetailsHeader(recipe: recipe),
           Padding(
-            padding: const EdgeInsets.fromLTRB(20, 24, 20, 32),
-            child: _content(details),
+            padding: EdgeInsets.fromLTRB(20.w, 24.h, 20.w, 32.h),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                RecipeDetailsTitle(recipe: recipe),
+                SizedBox(height: 28.h),
+                ..._sections(details),
+              ],
+            ),
           ),
         ],
       ),
     );
   }
 
-  Widget _content(RecipeDetailsController details) {
+  List<Widget> _sections(RecipeDetailsController details) {
     final recipe = details.recipe;
     switch (details.status) {
       case LoadStatus.idle:
       case LoadStatus.loading:
-        return Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            RecipeDetailsTitle(recipe: recipe),
-            const LoadingIndicator(),
-          ],
-        );
+        return const [RecipeDetailsSkeleton()];
       case LoadStatus.error:
-        return Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            RecipeDetailsTitle(recipe: recipe),
-            ErrorState(message: details.errorMessage, onRetry: details.load),
-          ],
-        );
+        return [
+          ErrorState(message: details.errorMessage, onRetry: details.load),
+        ];
       case LoadStatus.success:
-        return Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            RecipeDetailsTitle(recipe: recipe),
-            const SizedBox(height: 28),
-            IngredientSection(recipe: recipe),
-            InstructionSection(recipe: recipe),
-            VideoLinkButton(recipe: recipe),
-          ],
-        );
+        return [
+          IngredientSection(recipe: recipe),
+          InstructionSection(recipe: recipe),
+          VideoLinkButton(recipe: recipe),
+        ];
     }
   }
 }

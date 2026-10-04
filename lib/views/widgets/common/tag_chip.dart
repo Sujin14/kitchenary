@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:kitchenary/core/extensions/context_extensions.dart';
 
 /// A small colour-coded label used for recipe metadata.
@@ -19,17 +20,17 @@ class TagChip extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+      padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 5.h),
       decoration: BoxDecoration(
         color: background,
-        borderRadius: BorderRadius.circular(999),
+        borderRadius: BorderRadius.circular(999.r),
       ),
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
           if (icon != null) ...[
-            Icon(icon, size: 14, color: foreground),
-            const SizedBox(width: 4),
+            Icon(icon, size: 14.sp, color: foreground),
+            SizedBox(width: 4.w),
           ],
           Text(
             label,

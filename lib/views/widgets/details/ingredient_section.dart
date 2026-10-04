@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:kitchenary/models/recipe.dart';
 import 'package:kitchenary/views/widgets/common/section_title.dart';
 import 'package:kitchenary/views/widgets/details/ingredient_row.dart';
@@ -16,10 +17,10 @@ class IngredientSection extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         const SectionTitle('Ingredients'),
-        const SizedBox(height: 10),
+        SizedBox(height: 10.h),
         for (final ingredient in recipe.ingredients)
           IngredientRow(ingredient: ingredient),
-        const SizedBox(height: 28),
+        SizedBox(height: 28.h),
       ],
     );
   }

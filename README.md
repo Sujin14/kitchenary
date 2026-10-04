@@ -8,11 +8,17 @@ Learn it. Shop it. Cook it. A free Android cooking companion for India.
 | --- | --- | --- |
 | M0 | Foundation: theme (light and dark), routing, Provider, fonts, icon | done |
 | M1 | Recipes: TheMealDB search, categories, details, random recipe | done |
+| M1.1 | go_router, flutter_screenutil, shimmer skeletons | done |
 | M2 | Save, history, own recipes, profile, onboarding, legal pages | next |
 | M3 | Cooking mode, ingredient scaler | planned |
 | M4 | Timers and local notifications | planned |
 | M5 | Shopping list and grocery app links | planned |
 | M6 | Offline cache, dark-mode polish, release checklist | planned |
+
+## Libraries
+
+`provider` (state), `go_router` (navigation), `flutter_screenutil` (responsive sizes),
+`shimmer` (skeleton loading), `cached_network_image`, `http`, `url_launcher`.
 
 ## First run
 

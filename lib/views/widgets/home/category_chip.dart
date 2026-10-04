@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:kitchenary/core/extensions/context_extensions.dart';
 
 /// A selectable pill used for categories and sub-categories.
@@ -25,16 +26,16 @@ class CategoryChip extends StatelessWidget {
       label: label,
       child: InkWell(
         onTap: onTap,
-        borderRadius: BorderRadius.circular(999),
+        borderRadius: BorderRadius.circular(999.r),
         child: AnimatedContainer(
           duration: const Duration(milliseconds: 180),
           padding: EdgeInsets.symmetric(
-            horizontal: compact ? 14 : 18,
-            vertical: compact ? 8 : 11,
+            horizontal: (compact ? 14 : 18).w,
+            vertical: (compact ? 8 : 11).h,
           ),
           decoration: BoxDecoration(
             color: selected ? p.primary : p.surface,
-            borderRadius: BorderRadius.circular(999),
+            borderRadius: BorderRadius.circular(999.r),
             border: Border.all(color: selected ? p.primary : p.outline),
           ),
           child: Text(

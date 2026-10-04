@@ -20,9 +20,20 @@ TheMealDB, step-by-step cooking mode, timers, and links to grocery apps.
    Widgets use `context.palette.<token>`. Never use `Colors.*` or `Color(0x..)`
    elsewhere. Every screen must work in light and dark.
 2. **One widget per file**; screens contain no widget classes.
-3. **Navigation by route name** (`AppRoutes`), so widgets never import screens.
+3. **Navigation with `go_router`.** Routes live in `AppRouter`; widgets navigate
+   through `context.openRecipe(...)`, `context.goHome()`, `context.popOrHome()`
+   (`core/navigation/app_navigation.dart`) so they never import screens.
 4. **State** with `provider` only. No other state-management package.
-5. **Imports:** `package:kitchenary/...` only (no relative imports), sorted.
+4a. **Sizing with `flutter_screenutil`:** use `.w` (width), `.h` (height),
+   `.r` (radius, icon box, square sizes) and `.sp` (font size) for every size,
+   padding and radius (design size 390x844). A widget using them cannot be
+   `const`, and neither can its parents.
+4b. **Loading uses `shimmer` skeletons that mirror the real layout.** Every
+   screen section that loads has a `<Name>Skeleton` twin built from
+   `SkeletonBox` inside one `ShimmerScope`, sharing sizes with the real widget.
+   Never use a bare spinner for a screen or list.
+5. **Dart style:** wildcard parameters (`(_, _) =>`), `const` for locals that can
+   be const, trailing commas. **Imports:** `package:kitchenary/...` only (no relative imports), sorted.
 6. **No secrets in source.** Build-time values use `--dart-define`.
 7. **Free only:** no paid services, no ads, no analytics SDKs.
 8. Every new controller and service gets unit tests in `test/`.

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:kitchenary/core/theme/app_colors.dart';
 import 'package:kitchenary/core/theme/app_text_styles.dart';
 
@@ -36,7 +37,7 @@ abstract final class AppTheme {
     );
 
     final roundedShape = RoundedRectangleBorder(
-      borderRadius: BorderRadius.circular(14),
+      borderRadius: BorderRadius.circular(14.r),
     );
 
     return ThemeData(
@@ -61,7 +62,7 @@ abstract final class AppTheme {
         elevation: 0,
         margin: EdgeInsets.zero,
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(18),
+          borderRadius: BorderRadius.circular(18.r),
           side: BorderSide(color: p.outline),
         ),
       ),
@@ -70,7 +71,7 @@ abstract final class AppTheme {
         style: FilledButton.styleFrom(
           backgroundColor: p.primary,
           foregroundColor: p.onPrimary,
-          minimumSize: const Size.fromHeight(52),
+          minimumSize: Size.fromHeight(52.h),
           shape: roundedShape,
           textStyle: textTheme.labelLarge,
         ),
@@ -78,7 +79,7 @@ abstract final class AppTheme {
       outlinedButtonTheme: OutlinedButtonThemeData(
         style: OutlinedButton.styleFrom(
           foregroundColor: p.primary,
-          minimumSize: const Size.fromHeight(52),
+          minimumSize: Size.fromHeight(52.h),
           side: BorderSide(color: p.primary, width: 1.4),
           shape: roundedShape,
           textStyle: textTheme.labelLarge,
@@ -94,22 +95,21 @@ abstract final class AppTheme {
         filled: true,
         fillColor: p.surface,
         hintStyle: textTheme.bodyMedium?.copyWith(color: p.textHint),
-        contentPadding:
-            const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+        contentPadding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 14.h),
         border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(14),
+          borderRadius: BorderRadius.circular(14.r),
           borderSide: BorderSide(color: p.outline),
         ),
         enabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(14),
+          borderRadius: BorderRadius.circular(14.r),
           borderSide: BorderSide(color: p.outline),
         ),
         focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(14),
+          borderRadius: BorderRadius.circular(14.r),
           borderSide: BorderSide(color: p.primary, width: 1.6),
         ),
         errorBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(14),
+          borderRadius: BorderRadius.circular(14.r),
           borderSide: BorderSide(color: p.error),
         ),
       ),
@@ -117,11 +117,11 @@ abstract final class AppTheme {
         behavior: SnackBarBehavior.floating,
         backgroundColor: p.textPrimary,
         contentTextStyle: textTheme.bodyMedium?.copyWith(color: p.background),
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12.r)),
       ),
       dialogTheme: DialogThemeData(
         backgroundColor: p.surface,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.r)),
       ),
       progressIndicatorTheme: ProgressIndicatorThemeData(color: p.primary),
     );

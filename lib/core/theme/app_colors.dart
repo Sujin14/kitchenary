@@ -45,6 +45,8 @@ class AppPalette extends ThemeExtension<AppPalette> {
     required this.scrim,
     required this.overlayControl,
     required this.shadow,
+    required this.shimmerBase,
+    required this.shimmerHighlight,
   });
 
   // Brand
@@ -98,6 +100,10 @@ class AppPalette extends ThemeExtension<AppPalette> {
   final Color overlayControl;
   final Color shadow;
 
+  // Loading skeletons (shimmer)
+  final Color shimmerBase;
+  final Color shimmerHighlight;
+
   // ---------------------------------------------------------------------
   // Palettes
   // ---------------------------------------------------------------------
@@ -138,6 +144,8 @@ class AppPalette extends ThemeExtension<AppPalette> {
     scrim: Color(0x99000000),
     overlayControl: Color(0xE6FFFFFF),
     shadow: Color(0x1F1E2923),
+    shimmerBase: Color(0xFFE8E3D8),
+    shimmerHighlight: Color(0xFFF8F5EE),
   );
 
   static const AppPalette dark = AppPalette(
@@ -176,6 +184,8 @@ class AppPalette extends ThemeExtension<AppPalette> {
     scrim: Color(0xB3000000),
     overlayControl: Color(0xE61B231F),
     shadow: Color(0x66000000),
+    shimmerBase: Color(0xFF27312C),
+    shimmerHighlight: Color(0xFF36423C),
   );
 
   // ---------------------------------------------------------------------
@@ -219,6 +229,8 @@ class AppPalette extends ThemeExtension<AppPalette> {
         scrim: scrim,
         overlayControl: overlayControl,
         shadow: shadow,
+        shimmerBase: shimmerBase,
+        shimmerHighlight: shimmerHighlight,
       );
 
   @override
@@ -261,6 +273,8 @@ class AppPalette extends ThemeExtension<AppPalette> {
       scrim: mix(scrim, other.scrim),
       overlayControl: mix(overlayControl, other.overlayControl),
       shadow: mix(shadow, other.shadow),
+      shimmerBase: mix(shimmerBase, other.shimmerBase),
+      shimmerHighlight: mix(shimmerHighlight, other.shimmerHighlight),
     );
   }
 }

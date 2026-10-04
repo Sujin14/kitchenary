@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:kitchenary/core/extensions/context_extensions.dart';
-import 'package:kitchenary/core/navigation/app_routes.dart';
+import 'package:kitchenary/core/navigation/app_navigation.dart';
 import 'package:kitchenary/models/recipe.dart';
 import 'package:kitchenary/views/widgets/common/app_card.dart';
 import 'package:kitchenary/views/widgets/common/diet_mark.dart';
 import 'package:kitchenary/views/widgets/common/recipe_image.dart';
 
 /// A grid card: photo, veg / non-veg mark and title. Opens the details screen.
+///
+/// Keep the layout in sync with `RecipeCardSkeleton`.
 class RecipeCard extends StatelessWidget {
   const RecipeCard({required this.recipe, super.key});
 
@@ -15,10 +18,7 @@ class RecipeCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AppCard(
-      onTap: () => context.pushNamed<void>(
-        AppRoutes.recipeDetails,
-        arguments: recipe,
-      ),
+      onTap: () => context.openRecipe(recipe),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -28,15 +28,15 @@ class RecipeCard extends StatelessWidget {
               children: [
                 RecipeImage(url: recipe.imageUrl),
                 Positioned(
-                  top: 8,
-                  left: 8,
+                  top: 8.h,
+                  left: 8.w,
                   child: DietMark(diet: recipe.diet),
                 ),
               ],
             ),
           ),
           Padding(
-            padding: const EdgeInsets.all(12),
+            padding: EdgeInsets.all(12.r),
             child: Text(
               recipe.title,
               maxLines: 2,

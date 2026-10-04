@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:kitchenary/core/constants/app_constants.dart';
 import 'package:kitchenary/core/extensions/context_extensions.dart';
 import 'package:kitchenary/views/widgets/home/random_recipe_button.dart';
@@ -11,7 +12,7 @@ class HomeHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     final p = context.palette;
     return Padding(
-      padding: const EdgeInsets.fromLTRB(20, 16, 20, 12),
+      padding: EdgeInsets.fromLTRB(20.w, 16.h, 20.w, 12.h),
       child: Row(
         children: [
           Expanded(
@@ -24,7 +25,7 @@ class HomeHeader extends StatelessWidget {
                     color: p.primary,
                   ),
                 ),
-                const SizedBox(height: 2),
+                SizedBox(height: 2.h),
                 Text(
                   AppConstants.tagline,
                   style: context.textTheme.bodyMedium?.copyWith(

@@ -1,18 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:kitchenary/core/constants/app_constants.dart';
 
 /// The Kitchenary logo mark.
 class BrandLogo extends StatelessWidget {
-  const BrandLogo({this.size = 96, super.key});
+  const BrandLogo({this.size, super.key});
 
-  final double size;
+  /// Side length; defaults to 96 (scaled).
+  final double? size;
 
   @override
   Widget build(BuildContext context) {
+    final side = size ?? 96.r;
     return Image.asset(
       AppAssets.logoMark,
-      width: size,
-      height: size,
+      width: side,
+      height: side,
       semanticLabel: '${AppConstants.appName} logo',
     );
   }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:kitchenary/core/extensions/context_extensions.dart';
 import 'package:kitchenary/models/recipe.dart';
 import 'package:kitchenary/views/widgets/common/section_title.dart';
@@ -16,7 +17,7 @@ class InstructionSection extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         const SectionTitle('Method'),
-        const SizedBox(height: 12),
+        SizedBox(height: 12.h),
         if (recipe.hasSteps)
           for (var i = 0; i < recipe.steps.length; i++)
             NumberedStep(number: i + 1, text: recipe.steps[i])
@@ -27,7 +28,7 @@ class InstructionSection extends StatelessWidget {
               color: context.palette.textSecondary,
             ),
           ),
-        const SizedBox(height: 16),
+        SizedBox(height: 16.h),
       ],
     );
   }

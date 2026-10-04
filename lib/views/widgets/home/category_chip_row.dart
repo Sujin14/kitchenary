@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:kitchenary/controllers/home_controller.dart';
 import 'package:kitchenary/views/widgets/home/category_chip.dart';
 import 'package:provider/provider.dart';
@@ -11,12 +12,12 @@ class CategoryChipRow extends StatelessWidget {
   Widget build(BuildContext context) {
     final home = context.watch<HomeController>();
     return SizedBox(
-      height: 46,
+      height: 46.h,
       child: ListView.separated(
         scrollDirection: Axis.horizontal,
-        padding: const EdgeInsets.symmetric(horizontal: 20),
+        padding: EdgeInsets.symmetric(horizontal: 20.w),
         itemCount: home.categories.length,
-        separatorBuilder: (_, _) => const SizedBox(width: 10),
+        separatorBuilder: (_, _) => SizedBox(width: 10.w),
         itemBuilder: (context, index) {
           final category = home.categories[index];
           return CategoryChip(

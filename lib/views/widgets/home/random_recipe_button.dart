@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:kitchenary/controllers/home_controller.dart';
 import 'package:kitchenary/core/extensions/context_extensions.dart';
-import 'package:kitchenary/core/navigation/app_routes.dart';
+import 'package:kitchenary/core/navigation/app_navigation.dart';
 import 'package:kitchenary/views/widgets/common/app_snack_bar.dart';
 import 'package:provider/provider.dart';
 
@@ -20,12 +21,12 @@ class RandomRecipeButton extends StatelessWidget {
       style: IconButton.styleFrom(
         backgroundColor: p.accent,
         foregroundColor: p.onAccent,
-        minimumSize: const Size(48, 48),
+        minimumSize: Size(48.r, 48.r),
       ),
       icon: loading
           ? SizedBox(
-              width: 20,
-              height: 20,
+              width: 20.r,
+              height: 20.r,
               child: CircularProgressIndicator(
                 strokeWidth: 2.4,
                 color: p.onAccent,
@@ -41,10 +42,7 @@ class RandomRecipeButton extends StatelessWidget {
                 AppSnackBar.show(context, 'Could not fetch a recipe. Try again.');
                 return;
               }
-              await context.pushNamed<void>(
-                AppRoutes.recipeDetails,
-                arguments: recipe,
-              );
+              await context.openRecipe(recipe);
             },
     );
   }

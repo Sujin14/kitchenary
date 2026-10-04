@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:kitchenary/core/extensions/context_extensions.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:kitchenary/core/navigation/app_navigation.dart';
 import 'package:kitchenary/models/recipe.dart';
 import 'package:kitchenary/views/widgets/common/circle_icon_button.dart';
 import 'package:kitchenary/views/widgets/common/diet_mark.dart';
@@ -13,25 +14,26 @@ class RecipeDetailsHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final height = 320.h;
     return SizedBox(
-      height: 320,
+      height: height,
       child: Stack(
         fit: StackFit.expand,
         children: [
-          RecipeImage(url: recipe.imageUrl, height: 320),
+          RecipeImage(url: recipe.imageUrl, height: height),
           Positioned(
-            top: MediaQuery.paddingOf(context).top + 8,
-            left: 12,
+            top: MediaQuery.paddingOf(context).top + 8.h,
+            left: 12.w,
             child: CircleIconButton(
               icon: Icons.arrow_back,
               tooltip: 'Back',
-              onPressed: () => context.pop(),
+              onPressed: () => context.popOrHome(),
             ),
           ),
           Positioned(
-            bottom: 12,
-            left: 16,
-            child: DietMark(diet: recipe.diet, size: 22),
+            bottom: 12.h,
+            left: 16.w,
+            child: DietMark(diet: recipe.diet, size: 22.r),
           ),
         ],
       ),

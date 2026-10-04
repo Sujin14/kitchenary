@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:kitchenary/controllers/home_controller.dart';
 import 'package:kitchenary/views/widgets/home/category_chip.dart';
 import 'package:provider/provider.dart';
@@ -14,14 +15,14 @@ class SubcategoryChipRow extends StatelessWidget {
     if (subs.isEmpty) return const SizedBox.shrink();
 
     return Padding(
-      padding: const EdgeInsets.only(top: 10),
+      padding: EdgeInsets.only(top: 10.h),
       child: SizedBox(
-        height: 38,
+        height: 38.h,
         child: ListView.separated(
           scrollDirection: Axis.horizontal,
-          padding: const EdgeInsets.symmetric(horizontal: 20),
+          padding: EdgeInsets.symmetric(horizontal: 20.w),
           itemCount: subs.length,
-          separatorBuilder: (_, _) => const SizedBox(width: 8),
+          separatorBuilder: (_, _) => SizedBox(width: 8.w),
           itemBuilder: (context, index) {
             final sub = subs[index];
             return CategoryChip(

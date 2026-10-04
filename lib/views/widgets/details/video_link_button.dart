@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:kitchenary/models/recipe.dart';
 import 'package:kitchenary/services/url_launcher_service.dart';
 import 'package:kitchenary/views/widgets/common/app_snack_bar.dart';
@@ -15,7 +16,7 @@ class VideoLinkButton extends StatelessWidget {
   Widget build(BuildContext context) {
     if (!recipe.hasVideo) return const SizedBox.shrink();
     return Padding(
-      padding: const EdgeInsets.only(bottom: 28),
+      padding: EdgeInsets.only(bottom: 28.h),
       child: SecondaryButton(
         label: 'Watch the video',
         icon: Icons.play_circle_outline,

@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:kitchenary/core/extensions/context_extensions.dart';
 
 /// One numbered method step.
+///
+/// Keep the layout in sync with `NumberedStepSkeleton`.
 class NumberedStep extends StatelessWidget {
   const NumberedStep({required this.number, required this.text, super.key});
 
@@ -12,13 +15,13 @@ class NumberedStep extends StatelessWidget {
   Widget build(BuildContext context) {
     final p = context.palette;
     return Padding(
-      padding: const EdgeInsets.only(bottom: 16),
+      padding: EdgeInsets.only(bottom: 16.h),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
-            width: 30,
-            height: 30,
+            width: 30.r,
+            height: 30.r,
             alignment: Alignment.center,
             decoration: BoxDecoration(
               color: p.primarySoft,
@@ -29,7 +32,7 @@ class NumberedStep extends StatelessWidget {
               style: context.textTheme.labelLarge?.copyWith(color: p.primary),
             ),
           ),
-          const SizedBox(width: 14),
+          SizedBox(width: 14.w),
           Expanded(child: Text(text, style: context.textTheme.bodyLarge)),
         ],
       ),
