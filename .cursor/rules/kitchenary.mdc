@@ -1,0 +1,10 @@
+---
+description: Kitchenary architecture and style rules
+alwaysApply: true
+---
+
+Follow AGENTS.md in the repository root. In short: MVC with Provider; screens
+only compose widgets; one widget per file; every colour comes from
+`context.palette` (defined only in `lib/core/theme/app_colors.dart`); services
+sit behind interfaces; package imports only; `flutter analyze` and
+`flutter test` must pass before you finish.

@@ -1,0 +1,40 @@
+name: kitchenary
+description: Learn it, shop it, cook it. A free cooking companion with step-by-step mode, timers and grocery links.
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.8.0
+
+dependencies:
+  flutter:
+    sdk: flutter
+  provider: ^6.1.5
+  http: ^1.4.0
+  cached_network_image: ^3.4.1
+  url_launcher: ^6.3.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/images/
+    - assets/fonts/OFL.txt
+  fonts:
+    - family: DMSans
+      fonts:
+        - asset: assets/fonts/DMSans_400Regular.ttf
+        - asset: assets/fonts/DMSans_500Medium.ttf
+          weight: 500
+        - asset: assets/fonts/DMSans_700Bold.ttf
+          weight: 700
+    - family: Fraunces
+      fonts:
+        - asset: assets/fonts/Fraunces_600SemiBold.ttf
+          weight: 600
+        - asset: assets/fonts/Fraunces_700Bold.ttf
+          weight: 700
