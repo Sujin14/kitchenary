@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:kitchenary/core/extensions/context_extensions.dart';
-import 'package:kitchenary/models/recipe_ingredient.dart';
 
-/// One ingredient with a bullet.
+/// One ingredient line (already scaled) with a bullet.
 ///
 /// Keep the layout in sync with `IngredientRowSkeleton`.
 class IngredientRow extends StatelessWidget {
-  const IngredientRow({required this.ingredient, super.key});
+  const IngredientRow({required this.text, super.key});
 
-  final RecipeIngredient ingredient;
+  final String text;
 
   @override
   Widget build(BuildContext context) {
@@ -25,10 +24,7 @@ class IngredientRow extends StatelessWidget {
           ),
           SizedBox(width: 12.w),
           Expanded(
-            child: Text(
-              ingredient.displayText,
-              style: context.textTheme.bodyLarge,
-            ),
+            child: Text(text, style: context.textTheme.bodyLarge),
           ),
         ],
       ),

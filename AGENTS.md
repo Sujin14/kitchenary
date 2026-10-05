@@ -26,6 +26,8 @@ TheMealDB, step-by-step cooking mode, timers, and links to grocery apps.
 3a. **Storage:** controllers use `RecipeListRepository` / `SettingsRepository`
    on top of the `LocalStore` interface. Never import `hive` outside
    `hive_local_store.dart`. Tests use `MemoryLocalStore`.
+3b. **Device features** (keeping the screen awake, timer notifications) go
+   behind a service interface, like `ScreenAwakeService`, so tests use a fake.
 4. **State** with `provider` only. No other state-management package.
 4a. **Sizing with `flutter_screenutil`:** use `.w` (width), `.h` (height),
    `.r` (radius, icon box, square sizes) and `.sp` (font size) for every size,

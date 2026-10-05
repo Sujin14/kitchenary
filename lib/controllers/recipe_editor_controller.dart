@@ -9,7 +9,8 @@ class RecipeEditorController extends ChangeNotifier {
   RecipeEditorController({Recipe? existing})
       : _existing = existing,
         _title = existing?.title ?? '',
-        _diet = existing?.customDiet ?? DietType.vegetarian {
+        _diet = existing?.customDiet ?? DietType.vegetarian,
+        _servings = existing?.servings ?? Recipe.defaultServings {
     if (existing != null) {
       for (final i in existing.ingredients) {
         _ingredients.add(
@@ -29,12 +30,17 @@ class RecipeEditorController extends ChangeNotifier {
   final List<DraftLine> _steps = [];
   String _title;
   DietType _diet;
+  int _servings;
   int _lastId = 0;
 
   int _nextId() => ++_lastId;
 
   bool get isEditing => _existing != null;
+  static const int minServings = 1;
+  static const int maxServings = 24;
+
   String get title => _title;
+  int get servings => _servings;
   DietType get diet => _diet;
   List<DraftIngredient> get ingredients => List.unmodifiable(_ingredients);
   List<DraftLine> get steps => List.unmodifiable(_steps);
@@ -44,6 +50,13 @@ class RecipeEditorController extends ChangeNotifier {
   void setDiet(DietType value) {
     if (value == _diet) return;
     _diet = value;
+    notifyListeners();
+  }
+
+  void setServings(int value) {
+    final clamped = value.clamp(minServings, maxServings);
+    if (clamped == _servings) return;
+    _servings = clamped;
     notifyListeners();
   }
 
@@ -117,6 +130,7 @@ class RecipeEditorController extends ChangeNotifier {
           if (s.text.trim().isNotEmpty) s.text.trim(),
       ],
       customDiet: _diet,
+      servings: _servings,
     );
   }
 }

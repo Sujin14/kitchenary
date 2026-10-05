@@ -5,16 +5,23 @@ import 'package:kitchenary/controllers/home_controller.dart';
 import 'package:kitchenary/controllers/own_recipes_controller.dart';
 import 'package:kitchenary/controllers/saved_recipes_controller.dart';
 import 'package:kitchenary/controllers/settings_controller.dart';
+import 'package:kitchenary/controllers/timers_controller.dart';
 import 'package:kitchenary/core/constants/app_constants.dart';
 import 'package:kitchenary/core/constants/storage_keys.dart';
 import 'package:kitchenary/core/navigation/app_router.dart';
 import 'package:kitchenary/core/theme/app_theme.dart';
+import 'package:kitchenary/services/alarm_sound_service.dart';
+import 'package:kitchenary/services/local_notification_service.dart';
 import 'package:kitchenary/services/local_store.dart';
 import 'package:kitchenary/services/mealdb_recipe_service.dart';
+import 'package:kitchenary/services/notification_service.dart';
+import 'package:kitchenary/services/platform_alarm_sound_service.dart';
 import 'package:kitchenary/services/recipe_list_repository.dart';
 import 'package:kitchenary/services/recipe_service.dart';
+import 'package:kitchenary/services/screen_awake_service.dart';
 import 'package:kitchenary/services/settings_repository.dart';
 import 'package:kitchenary/services/url_launcher_service.dart';
+import 'package:kitchenary/services/wakelock_screen_awake_service.dart';
 import 'package:provider/provider.dart';
 
 /// Root widget: wires services and controllers (Provider), screen scaling
@@ -40,6 +47,15 @@ class KitchenaryApp extends StatelessWidget {
         Provider<UrlLauncherService>(
           create: (_) => const UrlLauncherService(),
         ),
+        Provider<ScreenAwakeService>(
+          create: (_) => const WakelockScreenAwakeService(),
+        ),
+        Provider<NotificationService>(
+          create: (_) => LocalNotificationService(),
+        ),
+        Provider<AlarmSoundService>(
+          create: (_) => const PlatformAlarmSoundService(),
+        ),
         // Controllers
         ChangeNotifierProvider<SettingsController>(
           create: (_) => SettingsController(SettingsRepository(store)),
@@ -57,6 +73,12 @@ class KitchenaryApp extends StatelessWidget {
         ChangeNotifierProvider<OwnRecipesController>(
           create: (_) => OwnRecipesController(
             RecipeListRepository(store, StorageKeys.ownRecipes),
+          ),
+        ),
+        ChangeNotifierProvider<TimersController>(
+          create: (context) => TimersController(
+            context.read<NotificationService>(),
+            context.read<AlarmSoundService>(),
           ),
         ),
         ChangeNotifierProvider<HomeController>(

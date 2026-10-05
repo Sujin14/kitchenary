@@ -4,6 +4,7 @@ import 'package:kitchenary/views/widgets/editor/diet_selector.dart';
 import 'package:kitchenary/views/widgets/editor/editor_save_button.dart';
 import 'package:kitchenary/views/widgets/editor/editor_title_field.dart';
 import 'package:kitchenary/views/widgets/editor/ingredient_editor.dart';
+import 'package:kitchenary/views/widgets/editor/servings_editor.dart';
 import 'package:kitchenary/views/widgets/editor/step_editor.dart';
 
 /// The scrollable recipe form.
@@ -19,6 +20,8 @@ class RecipeEditorForm extends StatelessWidget {
         const EditorTitleField(),
         SizedBox(height: 20.h),
         const DietSelector(),
+        SizedBox(height: 20.h),
+        const ServingsEditor(),
         SizedBox(height: 28.h),
         const IngredientEditor(),
         SizedBox(height: 20.h),

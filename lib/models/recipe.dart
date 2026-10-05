@@ -20,7 +20,12 @@ class Recipe {
     this.sourceUrl = '',
     this.isSummary = false,
     this.customDiet,
+    this.servings = defaultServings,
   });
+
+  /// TheMealDB does not say how many people a recipe feeds; recipes there
+  /// are written for about four.
+  static const int defaultServings = 4;
 
   /// Id prefix of recipes the user wrote themselves.
   static const String ownPrefix = 'own_';
@@ -36,6 +41,9 @@ class Recipe {
   final String videoUrl;
   final String sourceUrl;
   final bool isSummary;
+
+  /// How many people the listed amounts feed.
+  final int servings;
 
   /// Set by the user for their own recipes; overrides the inferred diet.
   final DietType? customDiet;
@@ -189,6 +197,7 @@ class Recipe {
         sourceUrl: json['sourceUrl'] as String? ?? '',
         isSummary: json['isSummary'] as bool? ?? false,
         customDiet: DietType.values.asNameMap()[json['customDiet'] as String?],
+        servings: (json['servings'] as num?)?.toInt() ?? defaultServings,
       );
 
   Map<String, dynamic> toJson() => {
@@ -204,5 +213,6 @@ class Recipe {
         'sourceUrl': sourceUrl,
         'isSummary': isSummary,
         if (customDiet != null) 'customDiet': customDiet!.name,
+        'servings': servings,
       };
 }

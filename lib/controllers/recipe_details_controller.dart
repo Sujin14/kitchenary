@@ -15,7 +15,8 @@ class RecipeDetailsController extends ChangeNotifier {
     this._service,
     Recipe initial, {
     this.onLoaded,
-  }) : _recipe = initial {
+  }) : _recipe = initial,
+       _servings = initial.servings {
     if (initial.isSummary) {
       load();
     } else {
@@ -27,11 +28,37 @@ class RecipeDetailsController extends ChangeNotifier {
   final RecipeService _service;
   final void Function(Recipe recipe)? onLoaded;
   Recipe _recipe;
+  int _servings;
   LoadStatus _status = LoadStatus.loading;
   String _errorMessage = '';
   bool _disposed = false;
 
+  static const int minServings = 1;
+  static const int maxServings = 24;
+
   Recipe get recipe => _recipe;
+
+  /// How many people the user wants to cook for.
+  int get servings => _servings;
+
+  /// Multiplier applied to the listed amounts.
+  double get scaleFactor {
+    final base = _recipe.servings;
+    return base <= 0 ? 1 : _servings / base;
+  }
+
+  /// The ingredient lines with amounts scaled to [servings].
+  List<String> get ingredientTexts => [
+        for (final ingredient in _recipe.ingredients)
+          ingredient.scaledText(scaleFactor),
+      ];
+
+  void setServings(int value) {
+    final clamped = value.clamp(minServings, maxServings);
+    if (clamped == _servings) return;
+    _servings = clamped;
+    _notify();
+  }
   LoadStatus get status => _status;
   String get errorMessage => _errorMessage;
 
@@ -44,7 +71,9 @@ class RecipeDetailsController extends ChangeNotifier {
         _errorMessage = 'This recipe is no longer available.';
         _status = LoadStatus.error;
       } else {
+        final untouched = _servings == _recipe.servings;
         _recipe = full;
+        if (untouched) _servings = full.servings;
         _status = LoadStatus.success;
         _announce();
       }

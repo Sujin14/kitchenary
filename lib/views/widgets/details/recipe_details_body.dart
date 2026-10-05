@@ -8,6 +8,7 @@ import 'package:kitchenary/views/widgets/details/instruction_section.dart';
 import 'package:kitchenary/views/widgets/details/recipe_details_header.dart';
 import 'package:kitchenary/views/widgets/details/recipe_details_skeleton.dart';
 import 'package:kitchenary/views/widgets/details/recipe_details_title.dart';
+import 'package:kitchenary/views/widgets/details/start_cooking_button.dart';
 import 'package:kitchenary/views/widgets/details/video_link_button.dart';
 import 'package:provider/provider.dart';
 
@@ -53,7 +54,8 @@ class RecipeDetailsBody extends StatelessWidget {
         ];
       case LoadStatus.success:
         return [
-          IngredientSection(recipe: recipe),
+          const StartCookingButton(),
+          const IngredientSection(),
           InstructionSection(recipe: recipe),
           VideoLinkButton(recipe: recipe),
         ];

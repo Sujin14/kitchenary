@@ -16,6 +16,11 @@ abstract final class AppRoutes {
   /// Concrete location for a recipe.
   static String recipe(String id) => '/recipe/$id';
 
+  /// Cooking mode for a recipe (needs a `CookingSession` as `extra`).
+  static const String cookingPattern = '/recipe/:id/cook';
+
+  static String cooking(String id) => '/recipe/$id/cook';
+
   // Recipe editor (outside the tabs, so the bottom bar is hidden).
   static const String recipeNew = '/mine/new';
   static const String recipeEdit = '/mine/edit';

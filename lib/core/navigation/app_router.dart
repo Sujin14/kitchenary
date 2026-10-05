@@ -1,7 +1,9 @@
 import 'package:go_router/go_router.dart';
 import 'package:kitchenary/core/constants/legal_content.dart';
 import 'package:kitchenary/core/navigation/app_routes.dart';
+import 'package:kitchenary/models/cooking_session.dart';
 import 'package:kitchenary/models/recipe.dart';
+import 'package:kitchenary/views/screens/cooking_screen.dart';
 import 'package:kitchenary/views/screens/history_screen.dart';
 import 'package:kitchenary/views/screens/home_screen.dart';
 import 'package:kitchenary/views/screens/legal_screen.dart';
@@ -84,6 +86,16 @@ abstract final class AppRouter {
                 );
           return RecipeDetailsScreen(recipe: recipe);
         },
+      ),
+      GoRoute(
+        path: AppRoutes.cookingPattern,
+        // Cooking mode needs the chosen servings, so a bare link goes to the
+        // recipe page instead.
+        redirect: (context, state) => state.extra is CookingSession
+            ? null
+            : AppRoutes.recipe(state.pathParameters['id'] ?? ''),
+        builder: (context, state) =>
+            CookingScreen(session: state.extra as CookingSession),
       ),
       GoRoute(
         path: AppRoutes.recipeNew,
