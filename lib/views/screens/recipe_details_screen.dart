@@ -29,7 +29,7 @@ class RecipeDetailsScreen extends StatelessWidget {
           },
         );
       },
-      child: const Scaffold(body: RecipeDetailsBody()),
+      child: const Scaffold(body: SafeArea(child: RecipeDetailsBody())),
     );
   }
 }

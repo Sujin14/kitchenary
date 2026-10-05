@@ -3,8 +3,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:kitchenary/views/widgets/home/category_chip_row.dart';
 import 'package:kitchenary/views/widgets/home/home_header.dart';
 import 'package:kitchenary/views/widgets/home/home_search_bar.dart';
+import 'package:kitchenary/views/widgets/home/offline_banner.dart';
 import 'package:kitchenary/views/widgets/home/recipe_feed.dart';
-import 'package:kitchenary/views/widgets/home/subcategory_chip_row.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -18,7 +18,7 @@ class HomeScreen extends StatelessWidget {
             const HomeHeader(),
             const HomeSearchBar(),
             const CategoryChipRow(),
-            const SubcategoryChipRow(),
+            const OfflineBanner(),
             SizedBox(height: 14.h),
             const Expanded(child: RecipeFeed()),
           ],

@@ -13,7 +13,7 @@ Learn it. Shop it. Cook it. A free Android cooking companion for India.
 | M3 | Cooking mode, ingredient scaler | built, needs testing |
 | M4 | Timers and local notifications | built, needs testing |
 | M5 | Shopping list and grocery app links | built, needs testing |
-| M6 | Offline cache, dark-mode polish, release checklist | planned |
+| M6 | Offline cache, dark-mode polish, release checklist | built, needs testing |
 
 ## Libraries
 
@@ -71,6 +71,20 @@ The stores offer no way for an app to fill a cart in one go, so this is as
 close to one order as an independent app gets. The store addresses are in
 `lib/core/constants/grocery_stores.dart` and are not confirmed with the stores:
 **test each one on a phone before every release** and fix them there.
+
+## Offline use
+
+Recipes you load are kept on the phone (feeds, searches and full recipes, up
+to 300 entries, oldest dropped first). Without internet the Home feed shows the
+saved copy with a notice, recipes you have opened before still open, and
+"surprise me" picks from them. Full recipes are served from the phone first.
+"Erase my data" clears this too. Saved and history recipes only open offline if
+they were opened online at least once.
+
+## Release
+
+See `RELEASE.md` for the full checklist. The one that can stop you: TheMealDB's
+free key is not allowed for apps published on a store.
 
 ## Servings and amounts
 

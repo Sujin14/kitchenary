@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:math';
 
 import 'package:flutter/foundation.dart';
 import 'package:kitchenary/controllers/load_status.dart';
@@ -11,11 +12,16 @@ import 'package:kitchenary/services/recipe_service.dart';
 
 /// Drives the Home feed: search text, category chips and results.
 class HomeController extends ChangeNotifier {
-  HomeController(this._service) {
-    selectCategory(RecipeCategory.indian);
+  HomeController(this._service, {Random? random})
+      : _random = random ?? Random() {
+    showMix();
   }
 
+  /// How many random categories fill the mixed feed.
+  static const int mixSize = 6;
+
   final RecipeService _service;
+  final Random _random;
 
   Timer? _debounce;
   int _requestId = 0;
@@ -36,6 +42,10 @@ class HomeController extends ChangeNotifier {
   RecipeFilter? get selectedSubcategory => _subcategory;
   String get query => _query;
   bool get isSearching => _query.isNotEmpty;
+
+  /// True while no search, pill or filter is chosen: the feed is a random
+  /// mix of foods.
+  bool get isMixed => _query.isEmpty && _category == null;
   bool get loadingRandom => _loadingRandom;
   List<RecipeCategory> get categories => RecipeCategory.all;
 
@@ -60,9 +70,17 @@ class HomeController extends ChangeNotifier {
 
   void clearSearch() {
     _debounce?.cancel();
-    if (_query.isEmpty && _category != null) return;
+    if (_query.isEmpty) return;
+    showMix();
+  }
+
+  /// Shows a fresh random mix of foods (the default feed).
+  void showMix() {
+    _debounce?.cancel();
     _query = '';
-    selectCategory(_category ?? RecipeCategory.indian);
+    _category = null;
+    _subcategory = null;
+    _load();
   }
 
   /// Selects [category]. Tapping the selected chip again keeps it selected
@@ -72,6 +90,39 @@ class HomeController extends ChangeNotifier {
     _category = category;
     _subcategory = null;
     _load();
+  }
+
+  /// Sets the category and, optionally, one of its sub-filters in one go
+  /// (used by the filter sheet).
+  void applyFilter(RecipeCategory category, [RecipeFilter? sub]) {
+    _query = '';
+    _category = category;
+    _subcategory = sub;
+    _load();
+  }
+
+  /// Tap on the Veg / Non-veg pill. Selects it; a second tap clears a
+  /// sub-filter, and a third goes back to the default feed.
+  void toggleDiet(RecipeCategory category) {
+    if (_category != category) {
+      applyFilter(category);
+    } else if (_subcategory != null) {
+      applyFilter(category);
+    } else {
+      clearFilters();
+    }
+  }
+
+  /// Back to the default feed: a random mix.
+  void clearFilters() => showMix();
+
+  /// True when something chosen in the filter sheet is narrowing the feed
+  /// (anything other than the random mix or a plain Veg / Non-veg pill).
+  bool get hasActiveFilter {
+    final category = _category;
+    if (category == null) return false;
+    if (_subcategory != null) return true;
+    return !RecipeCategory.diets.contains(category);
   }
 
   /// Selects a sub-chip; tapping it again returns to the whole category.
@@ -107,8 +158,12 @@ class HomeController extends ChangeNotifier {
       final List<Recipe> results;
       if (_query.isNotEmpty) {
         results = await _service.search(_query);
+      } else if (_category == null) {
+        final pool = [...RecipeCategory.mixPool]..shuffle(_random);
+        final found = await _service.browse(pool.take(mixSize).toList());
+        results = [...found]..shuffle(_random);
       } else {
-        final category = _category ?? RecipeCategory.indian;
+        final category = _category!;
         final sub = _subcategory;
         results = await _service.browse(sub == null ? category.filters : [sub]);
       }

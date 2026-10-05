@@ -121,7 +121,7 @@ class AppPalette extends ThemeExtension<AppPalette> {
     outline: Color(0xFFE2DDD2),
     textPrimary: Color(0xFF1E2923),
     textSecondary: Color(0xFF55615A),
-    textHint: Color(0xFF7C867F),
+    textHint: Color(0xFF69726C),
     error: Color(0xFFB3261E),
     onError: Color(0xFFFFFFFF),
     success: Color(0xFF2E7D4F),

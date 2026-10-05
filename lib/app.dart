@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:kitchenary/controllers/history_controller.dart';
 import 'package:kitchenary/controllers/home_controller.dart';
+import 'package:kitchenary/controllers/offline_status_controller.dart';
 import 'package:kitchenary/controllers/own_recipes_controller.dart';
 import 'package:kitchenary/controllers/saved_recipes_controller.dart';
 import 'package:kitchenary/controllers/settings_controller.dart';
@@ -12,12 +14,14 @@ import 'package:kitchenary/core/constants/storage_keys.dart';
 import 'package:kitchenary/core/navigation/app_router.dart';
 import 'package:kitchenary/core/theme/app_theme.dart';
 import 'package:kitchenary/services/alarm_sound_service.dart';
+import 'package:kitchenary/services/caching_recipe_service.dart';
 import 'package:kitchenary/services/clipboard_service.dart';
 import 'package:kitchenary/services/local_notification_service.dart';
 import 'package:kitchenary/services/local_store.dart';
 import 'package:kitchenary/services/mealdb_recipe_service.dart';
 import 'package:kitchenary/services/notification_service.dart';
 import 'package:kitchenary/services/platform_alarm_sound_service.dart';
+import 'package:kitchenary/services/recipe_cache.dart';
 import 'package:kitchenary/services/recipe_list_repository.dart';
 import 'package:kitchenary/services/recipe_service.dart';
 import 'package:kitchenary/services/screen_awake_service.dart';
@@ -39,13 +43,31 @@ class KitchenaryApp extends StatelessWidget {
   /// Layout is designed at this size (logical pixels); everything scales.
   static const Size designSize = Size(390, 844);
 
+  /// Status and navigation bar icons that stay readable on the page colour:
+  /// dark icons on the light theme, light icons on the dark theme.
+  static SystemUiOverlayStyle _systemBars(Brightness theme) {
+    final icons = theme == Brightness.dark ? Brightness.light : Brightness.dark;
+    return SystemUiOverlayStyle(
+      statusBarIconBrightness: icons,
+      systemNavigationBarIconBrightness: icons,
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
         // Services
+        Provider<RecipeCache>(create: (_) => RecipeCache(store)),
+        ChangeNotifierProvider<OfflineStatusController>(
+          create: (_) => OfflineStatusController(),
+        ),
         Provider<RecipeService>(
-          create: (_) => MealDbRecipeService(),
+          create: (context) => CachingRecipeService(
+            MealDbRecipeService(),
+            context.read<RecipeCache>(),
+            context.read<OfflineStatusController>(),
+          ),
           dispose: (_, service) => service.dispose(),
         ),
         Provider<UrlLauncherService>(
@@ -103,6 +125,10 @@ class KitchenaryApp extends StatelessWidget {
         splitScreenMode: true,
         builder: (context, _) => MaterialApp.router(
           title: AppConstants.appName,
+          builder: (context, child) => AnnotatedRegion<SystemUiOverlayStyle>(
+            value: _systemBars(Theme.of(context).brightness),
+            child: child ?? const SizedBox.shrink(),
+          ),
           debugShowCheckedModeBanner: false,
           theme: AppTheme.light,
           darkTheme: AppTheme.dark,

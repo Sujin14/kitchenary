@@ -32,12 +32,16 @@ class RecipeFeed extends StatelessWidget {
                 : 'Nothing here yet. Try a different chip.',
           );
         }
-        return GridView.builder(
-          padding: RecipeGridLayout.padding,
-          gridDelegate: RecipeGridLayout.delegate,
-          itemCount: home.recipes.length,
-          itemBuilder: (context, index) =>
-              RecipeCard(recipe: home.recipes[index]),
+        return RefreshIndicator(
+          onRefresh: home.retry,
+          child: GridView.builder(
+            physics: const AlwaysScrollableScrollPhysics(),
+            padding: RecipeGridLayout.padding,
+            gridDelegate: RecipeGridLayout.delegate,
+            itemCount: home.recipes.length,
+            itemBuilder: (context, index) =>
+                RecipeCard(recipe: home.recipes[index]),
+          ),
         );
     }
   }

@@ -67,6 +67,31 @@ class RecipeCategory {
     filters: [RecipeFilter(FilterKind.category, 'Dessert')],
   );
 
+  /// Where the "mixed" Home feed (no pill or filter chosen) takes its
+  /// recipes from: a few of these are picked at random each time.
+  static const List<RecipeFilter> mixPool = [
+    RecipeFilter(FilterKind.category, 'Beef'),
+    RecipeFilter(FilterKind.category, 'Breakfast'),
+    RecipeFilter(FilterKind.category, 'Chicken'),
+    RecipeFilter(FilterKind.category, 'Dessert'),
+    RecipeFilter(FilterKind.category, 'Lamb'),
+    RecipeFilter(FilterKind.category, 'Miscellaneous'),
+    RecipeFilter(FilterKind.category, 'Pasta'),
+    RecipeFilter(FilterKind.category, 'Pork'),
+    RecipeFilter(FilterKind.category, 'Seafood'),
+    RecipeFilter(FilterKind.category, 'Side'),
+    RecipeFilter(FilterKind.category, 'Starter'),
+    RecipeFilter(FilterKind.category, 'Vegan'),
+    RecipeFilter(FilterKind.category, 'Vegetarian'),
+    RecipeFilter(FilterKind.area, 'Indian'),
+  ];
+
+  /// The two quick pills on Home.
+  static const List<RecipeCategory> diets = [veg, nonVeg];
+
+  /// Everything else, offered in the filter sheet.
+  static const List<RecipeCategory> others = [indian, breakfast, dessert];
+
   static const List<RecipeCategory> all = [
     indian,
     veg,
