@@ -35,8 +35,8 @@ abstract final class LegalContent {
             'name, email address, phone number or location.',
         'Everything you create in the app stays on your device: the name '
             'you enter on the Profile screen, the recipes you save, the '
-            'recipes you recently viewed, the recipes you write yourself and '
-            'your theme choice.',
+            'recipes you recently viewed, the recipes you write yourself, your '
+            'shopping list and your theme choice.',
       ]),
       LegalSection('Data on your device', [
         'This data is stored only in the app\'s private storage on your '
@@ -52,6 +52,11 @@ abstract final class LegalContent {
         'Some recipes link to a video on YouTube or to the original recipe '
             'page. These open in your browser or in another app, and that '
             'service\'s privacy policy applies there.',
+        'The shopping list can open grocery services (such as Blinkit, '
+            'Zepto, Swiggy Instamart and BigBasket) in their app or website. '
+            'When you choose this for an item, the name of that item is sent '
+            'to the service you picked, and its privacy policy applies. '
+            'Kitchenary does not sign you in to them or place orders.',
       ]),
       LegalSection('Analytics, ads and tracking', [
         'Kitchenary contains no advertising, no analytics tools and no '

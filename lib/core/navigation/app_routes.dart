@@ -8,6 +8,7 @@ abstract final class AppRoutes {
   static const String home = '/home';
   static const String saved = '/saved';
   static const String mine = '/mine';
+  static const String shopping = '/shopping';
   static const String profile = '/profile';
 
   /// Pattern registered with the router.
@@ -24,6 +25,9 @@ abstract final class AppRoutes {
   // Recipe editor (outside the tabs, so the bottom bar is hidden).
   static const String recipeNew = '/mine/new';
   static const String recipeEdit = '/mine/edit';
+
+  /// Guided ordering of the shopping list (outside the tabs).
+  static const String order = '/order';
 
   static const String history = '/history';
 

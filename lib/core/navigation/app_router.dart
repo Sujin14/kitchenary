@@ -10,15 +10,17 @@ import 'package:kitchenary/views/screens/legal_screen.dart';
 import 'package:kitchenary/views/screens/main_shell_screen.dart';
 import 'package:kitchenary/views/screens/my_recipes_screen.dart';
 import 'package:kitchenary/views/screens/onboarding_screen.dart';
+import 'package:kitchenary/views/screens/order_screen.dart';
 import 'package:kitchenary/views/screens/profile_screen.dart';
 import 'package:kitchenary/views/screens/recipe_details_screen.dart';
 import 'package:kitchenary/views/screens/recipe_editor_screen.dart';
 import 'package:kitchenary/views/screens/saved_screen.dart';
+import 'package:kitchenary/views/screens/shopping_screen.dart';
 import 'package:kitchenary/views/screens/splash_screen.dart';
 
 /// The app's go_router configuration.
 ///
-/// The four tabs live in a [StatefulShellRoute] so each keeps its own scroll
+/// The five tabs live in a [StatefulShellRoute] so each keeps its own scroll
 /// position. Everything else opens on top of the tabs.
 abstract final class AppRouter {
   static final GoRouter router = GoRouter(
@@ -57,6 +59,14 @@ abstract final class AppRouter {
               GoRoute(
                 path: AppRoutes.mine,
                 builder: (context, state) => const MyRecipesScreen(),
+              ),
+            ],
+          ),
+          StatefulShellBranch(
+            routes: [
+              GoRoute(
+                path: AppRoutes.shopping,
+                builder: (context, state) => const ShoppingScreen(),
               ),
             ],
           ),
@@ -107,6 +117,10 @@ abstract final class AppRouter {
           final extra = state.extra;
           return RecipeEditorScreen(existing: extra is Recipe ? extra : null);
         },
+      ),
+      GoRoute(
+        path: AppRoutes.order,
+        builder: (context, state) => const OrderScreen(),
       ),
       GoRoute(
         path: AppRoutes.history,

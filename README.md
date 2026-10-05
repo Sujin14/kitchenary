@@ -12,7 +12,7 @@ Learn it. Shop it. Cook it. A free Android cooking companion for India.
 | M2 | Save, history, own recipes, profile, onboarding, legal pages | done |
 | M3 | Cooking mode, ingredient scaler | built, needs testing |
 | M4 | Timers and local notifications | built, needs testing |
-| M5 | Shopping list and grocery app links | planned |
+| M5 | Shopping list and grocery app links | built, needs testing |
 | M6 | Offline cache, dark-mode polish, release checklist | planned |
 
 ## Libraries
@@ -57,6 +57,20 @@ notification (no server). Asking for the notification permission happens when
 the first timer starts. After adding the packages run
 `dart run tool/configure_android.dart` once: it adds the notification
 permissions and the Java desugaring the plugin needs.
+
+## Shopping list
+
+The Shopping tab keeps a list on the phone. "Add to shopping list" on a
+recipe adds its ingredients at the chosen servings (names already on the list
+are skipped); items can also be typed in. Tick items off, swipe to remove,
+copy the list, or tap "Order online" for a guided order: pick one of Blinkit,
+Zepto, Swiggy Instamart or BigBasket, then go item by item (search it in the
+store, add it to the cart, come back, next) so everything ends up in one cart
+and one order. The store icon on an item searches a store for just that item.
+The stores offer no way for an app to fill a cart in one go, so this is as
+close to one order as an independent app gets. The store addresses are in
+`lib/core/constants/grocery_stores.dart` and are not confirmed with the stores:
+**test each one on a phone before every release** and fix them there.
 
 ## Servings and amounts
 

@@ -26,6 +26,9 @@ extension AppNavigation on BuildContext {
       ? GoRouter.of(this).push<void>(AppRoutes.recipeNew)
       : GoRouter.of(this).push<void>(AppRoutes.recipeEdit, extra: existing);
 
+  /// Opens the guided "order your shopping list" flow.
+  Future<void> openOrder() => GoRouter.of(this).push<void>(AppRoutes.order);
+
   Future<void> openHistory() => GoRouter.of(this).push<void>(AppRoutes.history);
 
   Future<void> openLegal(String slug) =>

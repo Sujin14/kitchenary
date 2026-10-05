@@ -5,12 +5,14 @@ import 'package:kitchenary/controllers/home_controller.dart';
 import 'package:kitchenary/controllers/own_recipes_controller.dart';
 import 'package:kitchenary/controllers/saved_recipes_controller.dart';
 import 'package:kitchenary/controllers/settings_controller.dart';
+import 'package:kitchenary/controllers/shopping_list_controller.dart';
 import 'package:kitchenary/controllers/timers_controller.dart';
 import 'package:kitchenary/core/constants/app_constants.dart';
 import 'package:kitchenary/core/constants/storage_keys.dart';
 import 'package:kitchenary/core/navigation/app_router.dart';
 import 'package:kitchenary/core/theme/app_theme.dart';
 import 'package:kitchenary/services/alarm_sound_service.dart';
+import 'package:kitchenary/services/clipboard_service.dart';
 import 'package:kitchenary/services/local_notification_service.dart';
 import 'package:kitchenary/services/local_store.dart';
 import 'package:kitchenary/services/mealdb_recipe_service.dart';
@@ -20,6 +22,8 @@ import 'package:kitchenary/services/recipe_list_repository.dart';
 import 'package:kitchenary/services/recipe_service.dart';
 import 'package:kitchenary/services/screen_awake_service.dart';
 import 'package:kitchenary/services/settings_repository.dart';
+import 'package:kitchenary/services/shopping_list_repository.dart';
+import 'package:kitchenary/services/system_clipboard_service.dart';
 import 'package:kitchenary/services/url_launcher_service.dart';
 import 'package:kitchenary/services/wakelock_screen_awake_service.dart';
 import 'package:provider/provider.dart';
@@ -53,6 +57,9 @@ class KitchenaryApp extends StatelessWidget {
         Provider<NotificationService>(
           create: (_) => LocalNotificationService(),
         ),
+        Provider<ClipboardService>(
+          create: (_) => const SystemClipboardService(),
+        ),
         Provider<AlarmSoundService>(
           create: (_) => const PlatformAlarmSoundService(),
         ),
@@ -73,6 +80,11 @@ class KitchenaryApp extends StatelessWidget {
         ChangeNotifierProvider<OwnRecipesController>(
           create: (_) => OwnRecipesController(
             RecipeListRepository(store, StorageKeys.ownRecipes),
+          ),
+        ),
+        ChangeNotifierProvider<ShoppingListController>(
+          create: (_) => ShoppingListController(
+            ShoppingListRepository(store, StorageKeys.shoppingList),
           ),
         ),
         ChangeNotifierProvider<TimersController>(

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:kitchenary/controllers/recipe_details_controller.dart';
 import 'package:kitchenary/views/widgets/common/section_title.dart';
+import 'package:kitchenary/views/widgets/details/add_to_list_button.dart';
 import 'package:kitchenary/views/widgets/details/ingredient_row.dart';
 import 'package:kitchenary/views/widgets/details/servings_stepper.dart';
 import 'package:provider/provider.dart';
@@ -24,6 +25,8 @@ class IngredientSection extends StatelessWidget {
         const ServingsStepper(),
         SizedBox(height: 4.h),
         for (final text in details.ingredientTexts) IngredientRow(text: text),
+        SizedBox(height: 12.h),
+        const AddToListButton(),
         SizedBox(height: 28.h),
       ],
     );

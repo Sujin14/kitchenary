@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-/// The four tabs: Explore, Saved, My recipes and Profile.
+/// The five tabs: Explore, Saved, My recipes, Shopping and Profile.
 class AppBottomBar extends StatelessWidget {
   const AppBottomBar({required this.navigationShell, super.key});
 
@@ -31,6 +31,11 @@ class AppBottomBar extends StatelessWidget {
           icon: Icon(Icons.menu_book_outlined),
           selectedIcon: Icon(Icons.menu_book),
           label: 'My recipes',
+        ),
+        NavigationDestination(
+          icon: Icon(Icons.shopping_basket_outlined),
+          selectedIcon: Icon(Icons.shopping_basket),
+          label: 'Shopping',
         ),
         NavigationDestination(
           icon: Icon(Icons.person_outline),
