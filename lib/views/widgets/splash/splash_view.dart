@@ -6,7 +6,6 @@ import 'package:kitchenary/controllers/settings_controller.dart';
 import 'package:kitchenary/core/constants/app_constants.dart';
 import 'package:kitchenary/core/extensions/context_extensions.dart';
 import 'package:kitchenary/core/navigation/app_navigation.dart';
-import 'package:kitchenary/views/widgets/common/brand_logo.dart';
 import 'package:provider/provider.dart';
 
 /// Logo, name and tagline; moves on after a short pause: to Home, or to the
@@ -43,25 +42,41 @@ class _SplashViewState extends State<SplashView> {
   @override
   Widget build(BuildContext context) {
     final p = context.palette;
-    return Center(
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          BrandLogo(size: 112.r),
-          SizedBox(height: 24.h),
-          Text(
-            AppConstants.appName,
-            style: context.textTheme.displayMedium?.copyWith(color: p.primary),
+    return Stack(
+      fit: StackFit.expand,
+      children: [
+        Image.asset(
+          'assets/images/splash.png',
+          fit: BoxFit.cover,
+        ),
+        Center(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Image.asset(
+                'assets/icons/kitchenary_wbg.png',
+                width: 112.r,
+                height: 112.r,
+                semanticLabel: '${AppConstants.appName} logo',
+              ),
+              SizedBox(height: 24.h),
+              Text(
+                AppConstants.appName,
+                style: context.textTheme.displayMedium?.copyWith(
+                  color: p.primary,
+                ),
+              ),
+              SizedBox(height: 8.h),
+              Text(
+                AppConstants.tagline,
+                style: context.textTheme.bodyLarge?.copyWith(
+                  color: p.textSecondary,
+                ),
+              ),
+            ],
           ),
-          SizedBox(height: 8.h),
-          Text(
-            AppConstants.tagline,
-            style: context.textTheme.bodyLarge?.copyWith(
-              color: p.textSecondary,
-            ),
-          ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }
