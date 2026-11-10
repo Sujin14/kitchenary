@@ -8,8 +8,8 @@ import 'package:kitchenary/core/extensions/context_extensions.dart';
 import 'package:kitchenary/core/navigation/app_navigation.dart';
 import 'package:provider/provider.dart';
 
-/// Logo, name and tagline; moves on after a short pause: to Home, or to the
-/// welcome pages on the very first launch.
+// Logo, name and tagline; moves on after a short pause: to Home, or to the
+// welcome pages on the very first launch.
 class SplashView extends StatefulWidget {
   const SplashView({super.key});
 

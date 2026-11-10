@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:kitchenary/controllers/settings_controller.dart';
 import 'package:provider/provider.dart';
 
-/// System / Light / Dark switch.
+// System / Light / Dark switch.
 class ThemeModeSelector extends StatelessWidget {
   const ThemeModeSelector({super.key});
 

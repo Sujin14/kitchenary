@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:kitchenary/core/extensions/context_extensions.dart';
 
-/// A solid placeholder block. Use inside a [ShimmerScope].
+// A solid placeholder block. Use inside a [ShimmerScope].
 class SkeletonBox extends StatelessWidget {
   const SkeletonBox({
     this.width,
@@ -15,7 +15,7 @@ class SkeletonBox extends StatelessWidget {
   final double? width;
   final double? height;
 
-  /// Corner radius; defaults to 8 (scaled).
+  // Corner radius; defaults to 8 (scaled).
   final double? radius;
   final bool circle;
 

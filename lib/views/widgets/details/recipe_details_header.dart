@@ -7,7 +7,7 @@ import 'package:kitchenary/views/widgets/common/diet_mark.dart';
 import 'package:kitchenary/views/widgets/common/recipe_image.dart';
 import 'package:kitchenary/views/widgets/recipe/save_recipe_button.dart';
 
-/// Hero photo with back and save buttons and the veg / non-veg mark.
+// Hero photo with back and save buttons and the veg / non-veg mark.
 class RecipeDetailsHeader extends StatelessWidget {
   const RecipeDetailsHeader({required this.recipe, super.key});
 

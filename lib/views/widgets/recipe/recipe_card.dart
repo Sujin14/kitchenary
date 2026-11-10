@@ -8,9 +8,9 @@ import 'package:kitchenary/views/widgets/common/diet_mark.dart';
 import 'package:kitchenary/views/widgets/common/recipe_image.dart';
 import 'package:kitchenary/views/widgets/recipe/save_recipe_button.dart';
 
-/// A grid card: photo, veg / non-veg mark and title. Opens the details screen.
-///
-/// Keep the layout in sync with `RecipeCardSkeleton`.
+// A grid card: photo, veg / non-veg mark and title. Opens the details screen.
+//
+// Keep the layout in sync with `RecipeCardSkeleton`.
 class RecipeCard extends StatelessWidget {
   const RecipeCard({required this.recipe, super.key});
 

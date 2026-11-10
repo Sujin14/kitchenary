@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:kitchenary/views/widgets/common/skeleton_box.dart';
 
-/// Loading twin of `NumberedStep`: number circle and two text lines.
+// Loading twin of `NumberedStep`: number circle and two text lines.
 class NumberedStepSkeleton extends StatelessWidget {
   const NumberedStepSkeleton({super.key});
 

@@ -5,7 +5,7 @@ import 'package:kitchenary/views/widgets/common/section_title.dart';
 import 'package:kitchenary/views/widgets/editor/ingredient_editor_row.dart';
 import 'package:provider/provider.dart';
 
-/// The list of ingredient rows with an "Add ingredient" button.
+// The list of ingredient rows with an "Add ingredient" button.
 class IngredientEditor extends StatelessWidget {
   const IngredientEditor({super.key});
 

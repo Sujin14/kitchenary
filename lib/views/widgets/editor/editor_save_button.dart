@@ -6,7 +6,7 @@ import 'package:kitchenary/views/widgets/common/app_snack_bar.dart';
 import 'package:kitchenary/views/widgets/common/primary_button.dart';
 import 'package:provider/provider.dart';
 
-/// Validates the draft and stores it as one of the user's own recipes.
+// Validates the draft and stores it as one of the user's own recipes.
 class EditorSaveButton extends StatelessWidget {
   const EditorSaveButton({super.key});
 

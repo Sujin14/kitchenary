@@ -7,7 +7,7 @@ import 'package:kitchenary/core/utils/duration_format.dart';
 import 'package:kitchenary/core/utils/step_duration_parser.dart';
 import 'package:provider/provider.dart';
 
-/// One "Start 10 min timer" button per time mentioned in the step.
+// One "Start 10 min timer" button per time mentioned in the step.
 class StepTimerButtons extends StatelessWidget {
   const StepTimerButtons({
     required this.stepNumber,

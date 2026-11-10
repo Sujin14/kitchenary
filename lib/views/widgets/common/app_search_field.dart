@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-/// A search box with a clear button.
+// A search box with a clear button.
 class AppSearchField extends StatefulWidget {
   const AppSearchField({
     required this.hint,

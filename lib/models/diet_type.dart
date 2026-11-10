@@ -1,4 +1,4 @@
-/// Veg / non-veg classification, shown with the familiar green / red dot.
+// Veg / non-veg classification, shown with the familiar green / red dot.
 enum DietType {
   vegan('Vegan'),
   vegetarian('Vegetarian'),

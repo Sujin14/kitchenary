@@ -2,9 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:kitchenary/core/extensions/context_extensions.dart';
 
-/// One numbered method step.
-///
-/// Keep the layout in sync with `NumberedStepSkeleton`.
+// One numbered method step.
+// Keep the layout in sync with `NumberedStepSkeleton`.
 class NumberedStep extends StatelessWidget {
   const NumberedStep({required this.number, required this.text, super.key});
 

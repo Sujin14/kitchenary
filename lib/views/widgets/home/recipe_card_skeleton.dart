@@ -4,8 +4,8 @@ import 'package:kitchenary/views/widgets/common/app_card.dart';
 import 'package:kitchenary/views/widgets/common/shimmer_scope.dart';
 import 'package:kitchenary/views/widgets/common/skeleton_box.dart';
 
-/// Loading twin of `RecipeCard`: same card, same photo area, same padding,
-/// and two title lines where the title will be.
+// Loading twin of `RecipeCard`: same card, same photo area, same padding,
+// and two title lines where the title will be.
 class RecipeCardSkeleton extends StatelessWidget {
   const RecipeCardSkeleton({super.key});
 

@@ -5,7 +5,7 @@ import 'package:kitchenary/views/widgets/common/empty_state.dart';
 import 'package:kitchenary/views/widgets/recipe/recipe_list_tile.dart';
 import 'package:provider/provider.dart';
 
-/// Recently viewed recipes, newest first.
+// Recently viewed recipes, newest first.
 class HistoryList extends StatelessWidget {
   const HistoryList({super.key});
 

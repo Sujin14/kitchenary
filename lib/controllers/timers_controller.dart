@@ -6,12 +6,11 @@ import 'package:kitchenary/models/cooking_timer.dart';
 import 'package:kitchenary/services/alarm_sound_service.dart';
 import 'package:kitchenary/services/notification_service.dart';
 
-/// Cooking timers. Several can run at once and they keep running when you
-/// leave cooking mode. Time is measured against the clock, so a timer stays
-/// right while the app is in the background.
-///
-/// A timer that runs out while the app is open rings inside the app until its
-/// chip is dismissed; otherwise its scheduled notification does the ringing.
+// Cooking timers. Several can run at once and they keep running when you
+// leave cooking mode. Time is measured against the clock, so a timer stays
+// right while the app is in the background.
+// A timer that runs out while the app is open rings inside the app until its
+// chip is dismissed; otherwise its scheduled notification does the ringing.
 class TimersController extends ChangeNotifier {
   TimersController(
     this._notifications,
@@ -25,8 +24,8 @@ class TimersController extends ChangeNotifier {
         _tickEvery = tickEvery,
         _autoTick = autoTick;
 
-  /// A timer that ran out longer ago than this (the app was in the background
-  /// or the phone was asleep) has already rung through its notification.
+  // A timer that ran out longer ago than this (the app was in the background
+  // or the phone was asleep) has already rung through its notification.
   static const Duration inAppRingWindow = Duration(seconds: 30);
 
   final NotificationService _notifications;
@@ -49,8 +48,8 @@ class TimersController extends ChangeNotifier {
   bool get hasTimers => _timers.isNotEmpty;
   bool get hasRunning => _timers.any((t) => t.isRunning);
 
-  /// True when a notification could not be scheduled, so the user will not
-  /// be alerted while the app is closed.
+  // True when a notification could not be scheduled, so the user will not
+  // be alerted while the app is closed.
   bool get alertsBlocked => _alertsBlocked;
 
   Duration remaining(CookingTimer timer) => timer.remainingAt(_now());
@@ -102,7 +101,7 @@ class TimersController extends ChangeNotifier {
     await _schedule(resumed);
   }
 
-  /// Stops and removes a timer (also used to dismiss a finished one).
+  // Stops and removes a timer (also used to dismiss a finished one).
   Future<void> remove(int id) async {
     final index = _indexOf(id);
     if (index < 0) return;
@@ -113,8 +112,8 @@ class TimersController extends ChangeNotifier {
     await _notifications.cancel(id);
   }
 
-  /// Marks timers that ran out as finished. Called every second while any
-  /// timer is running; public so tests can drive it.
+  // Marks timers that ran out as finished. Called every second while any
+  // timer is running; public so tests can drive it.
   void tick() {
     var changed = false;
     final now = _now();
@@ -148,8 +147,8 @@ class TimersController extends ChangeNotifier {
     }
   }
 
-  /// Rings for [timer], which just ran out, if the user is in the app. Its
-  /// notification is cancelled so two looping sounds never play together.
+  // Rings for [timer], which just ran out, if the user is in the app. Its
+  // notification is cancelled so two looping sounds never play together.
   void _ringInApp(CookingTimer timer, DateTime now) {
     final endAt = timer.endAt;
     if (endAt == null || now.difference(endAt) > inAppRingWindow) return;

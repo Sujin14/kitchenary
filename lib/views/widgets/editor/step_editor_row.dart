@@ -5,7 +5,7 @@ import 'package:kitchenary/core/extensions/context_extensions.dart';
 import 'package:kitchenary/models/draft_line.dart';
 import 'package:provider/provider.dart';
 
-/// One method step: its number, a multi-line field and a remove button.
+// One method step: its number, a multi-line field and a remove button.
 class StepEditorRow extends StatelessWidget {
   const StepEditorRow({required this.step, required this.number, super.key});
 

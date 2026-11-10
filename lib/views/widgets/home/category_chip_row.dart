@@ -6,7 +6,7 @@ import 'package:kitchenary/views/widgets/home/category_chip.dart';
 import 'package:kitchenary/views/widgets/home/home_filter_button.dart';
 import 'package:provider/provider.dart';
 
-/// The Veg and Non-veg pills, with the filter button on the right.
+// The Veg and Non-veg pills, with the filter button on the right.
 class CategoryChipRow extends StatelessWidget {
   const CategoryChipRow({super.key});
 

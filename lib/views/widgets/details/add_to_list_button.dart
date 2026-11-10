@@ -8,9 +8,9 @@ import 'package:kitchenary/views/widgets/common/app_snack_bar.dart';
 import 'package:kitchenary/views/widgets/common/secondary_button.dart';
 import 'package:provider/provider.dart';
 
-/// Puts the ingredients, at the chosen servings, on the shopping list.
-///
-/// Keep the height in sync with `RecipeDetailsSkeleton`.
+// Puts the ingredients, at the chosen servings, on the shopping list.
+//
+// Keep the height in sync with `RecipeDetailsSkeleton`.
 class AddToListButton extends StatelessWidget {
   const AddToListButton({super.key});
 

@@ -8,8 +8,8 @@ import 'package:kitchenary/views/widgets/common/app_snack_bar.dart';
 import 'package:kitchenary/views/widgets/shopping/store_picker_sheet.dart';
 import 'package:provider/provider.dart';
 
-/// One shopping list row: tick it off, swipe to remove, or look it up in a
-/// grocery store.
+// One shopping list row: tick it off, swipe to remove, or look it up in a
+// grocery store.
 class ShoppingItemTile extends StatelessWidget {
   const ShoppingItemTile({required this.item, super.key});
 

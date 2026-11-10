@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:kitchenary/core/theme/app_colors.dart';
 import 'package:kitchenary/core/theme/app_text_styles.dart';
 
-/// Builds the Material 3 light and dark themes from [AppPalette].
+// Builds the Material 3 light and dark themes from [AppPalette].
 abstract final class AppTheme {
   static ThemeData get light => _build(AppPalette.light, Brightness.light);
   static ThemeData get dark => _build(AppPalette.dark, Brightness.dark);

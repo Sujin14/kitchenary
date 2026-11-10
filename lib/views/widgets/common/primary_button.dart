@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-/// The main call-to-action button (filled, brand green).
+// The main call-to-action button (filled, brand green).
 class PrimaryButton extends StatelessWidget {
   const PrimaryButton({
     required this.label,

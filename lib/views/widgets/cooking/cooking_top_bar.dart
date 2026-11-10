@@ -7,7 +7,7 @@ import 'package:kitchenary/views/widgets/cooking/add_timer_sheet.dart';
 import 'package:kitchenary/views/widgets/cooking/cooking_progress_bar.dart';
 import 'package:provider/provider.dart';
 
-/// Close button, recipe name, where you are, and the progress bar.
+// Close button, recipe name, where you are, and the progress bar.
 class CookingTopBar extends StatelessWidget {
   const CookingTopBar({super.key});
 

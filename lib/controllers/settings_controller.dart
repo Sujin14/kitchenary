@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:kitchenary/services/settings_repository.dart';
 
-/// The user's name, theme choice and whether onboarding has been seen.
+// The user's name, theme choice and whether onboarding has been seen.
 class SettingsController extends ChangeNotifier {
   SettingsController(this._repository)
       : _onboardingDone = _repository.onboardingDone,
@@ -19,7 +19,7 @@ class SettingsController extends ChangeNotifier {
   bool get hasName => _userName.isNotEmpty;
   ThemeMode get themeMode => _themeMode;
 
-  /// First letter of the name for the avatar, or an empty string.
+  // First letter of the name for the avatar, or an empty string.
   String get initial =>
       _userName.isEmpty ? '' : _userName.substring(0, 1).toUpperCase();
 
@@ -45,7 +45,7 @@ class SettingsController extends ChangeNotifier {
     await _repository.setThemeMode(mode);
   }
 
-  /// Forgets the name and theme choice.
+  // Forgets the name and theme choice.
   Future<void> reset() async {
     _userName = '';
     _themeMode = ThemeMode.system;

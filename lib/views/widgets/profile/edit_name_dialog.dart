@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-/// Asks for the user's name. Use [show]; it returns the text, or null if
-/// the dialog was cancelled.
+// Asks for the user's name. Use [show]; it returns the text, or null if
+// the dialog was cancelled.
 class EditNameDialog extends StatefulWidget {
   const EditNameDialog({required this.initialName, super.key});
 

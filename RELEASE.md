@@ -22,14 +22,16 @@ without them.
 
 ## 2. Legal and contact (blocker)
 
-- Replace `AppConstants.supportEmail` with an inbox you read.
+- Support address: `AppConstants.supportEmail` (sujinksureshofcl@gmail.com).
+  Make sure that inbox is checked; Play shows it on the store listing.
 - Have the Privacy Policy and Terms (`lib/core/constants/legal_content.dart`)
   reviewed by a lawyer.
 - Publish the Privacy Policy at a public web address (for example GitHub
   Pages) and paste that address into Play Console. The in-app copy alone is
   not enough.
 - Re-read the policy against the final app: storage, notifications, the
-  grocery store links, TheMealDB requests.
+  grocery store links, TheMealDB requests. If the text changes, update its
+  "Last updated" date in `legal_content.dart`.
 
 ## 3. App identity
 

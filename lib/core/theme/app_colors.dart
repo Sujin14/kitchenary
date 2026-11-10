@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
-/// The single source of truth for every colour in Kitchenary.
-///
-/// Rules:
-///  * Raw colour values live ONLY in this file.
-///  * Widgets read colours with `context.palette` (see
-///    `core/extensions/context_extensions.dart`) so light and dark themes work
-///    everywhere. Never use `Colors.*` or `Color(0x...)` outside this file.
+// The single source of truth for every colour in Kitchenary.
+//
+// Rules:
+//  * Raw colour values live ONLY in this file.
+//  * Widgets read colours with `context.palette` (see
+//    `core/extensions/context_extensions.dart`) so light and dark themes work
+//    everywhere. Never use `Colors.*` or `Color(0x...)` outside this file.
 @immutable
 class AppPalette extends ThemeExtension<AppPalette> {
   const AppPalette({
@@ -85,7 +85,7 @@ class AppPalette extends ThemeExtension<AppPalette> {
   final Color timeBackground;
   final Color timeForeground;
 
-  /// Indian packaging convention: green dot = veg, red/brown dot = non-veg.
+  // Indian packaging convention: green dot = veg, red/brown dot = non-veg.
   final Color vegMark;
   final Color nonVegMark;
 

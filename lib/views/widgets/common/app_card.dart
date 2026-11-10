@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-/// A rounded card with an optional tap action.
+// A rounded card with an optional tap action.
 class AppCard extends StatelessWidget {
   const AppCard({
     required this.child,

@@ -7,9 +7,9 @@ import 'package:kitchenary/views/widgets/details/ingredient_row.dart';
 import 'package:kitchenary/views/widgets/details/servings_stepper.dart';
 import 'package:provider/provider.dart';
 
-/// The ingredient list, with a servings stepper that rescales the amounts.
-///
-/// Keep the layout in sync with `RecipeDetailsSkeleton`.
+// The ingredient list, with a servings stepper that rescales the amounts.
+//
+// Keep the layout in sync with `RecipeDetailsSkeleton`.
 class IngredientSection extends StatelessWidget {
   const IngredientSection({super.key});
 

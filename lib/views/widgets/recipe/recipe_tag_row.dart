@@ -4,7 +4,7 @@ import 'package:kitchenary/models/recipe.dart';
 import 'package:kitchenary/views/widgets/recipe/diet_badge.dart';
 import 'package:kitchenary/views/widgets/recipe/difficulty_tag.dart';
 
-/// The colour-coded metadata tags of a recipe.
+// The colour-coded metadata tags of a recipe.
 class RecipeTagRow extends StatelessWidget {
   const RecipeTagRow({required this.recipe, super.key});
 

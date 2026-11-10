@@ -11,7 +11,7 @@ import 'package:kitchenary/views/widgets/cooking/cooking_timers_strip.dart';
 import 'package:kitchenary/views/widgets/cooking/cooking_top_bar.dart';
 import 'package:provider/provider.dart';
 
-/// Cooking mode: a swipeable page per step, with the screen kept awake.
+// Cooking mode: a swipeable page per step, with the screen kept awake.
 class CookingView extends StatefulWidget {
   const CookingView({super.key});
 

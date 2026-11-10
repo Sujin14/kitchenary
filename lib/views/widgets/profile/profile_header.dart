@@ -6,7 +6,7 @@ import 'package:kitchenary/views/widgets/common/app_card.dart';
 import 'package:kitchenary/views/widgets/profile/edit_name_dialog.dart';
 import 'package:provider/provider.dart';
 
-/// Avatar with the user's initial, their name, and a tap to change it.
+// Avatar with the user's initial, their name, and a tap to change it.
 class ProfileHeader extends StatelessWidget {
   const ProfileHeader({super.key});
 

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-/// An outlined button for secondary actions.
+// An outlined button for secondary actions.
 class SecondaryButton extends StatelessWidget {
   const SecondaryButton({
     required this.label,

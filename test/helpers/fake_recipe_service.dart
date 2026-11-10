@@ -3,7 +3,7 @@ import 'package:kitchenary/models/recipe_filter.dart';
 import 'package:kitchenary/services/api_exception.dart';
 import 'package:kitchenary/services/recipe_service.dart';
 
-/// In-memory [RecipeService] for controller tests.
+// In-memory [RecipeService] for controller tests.
 class FakeRecipeService implements RecipeService {
   List<Recipe> browseResult = const [];
   List<Recipe> searchResult = const [];

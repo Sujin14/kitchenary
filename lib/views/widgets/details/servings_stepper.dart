@@ -5,9 +5,8 @@ import 'package:kitchenary/core/extensions/context_extensions.dart';
 import 'package:kitchenary/views/widgets/common/count_stepper.dart';
 import 'package:provider/provider.dart';
 
-/// "Servings  - 4 +": changes the amounts shown in the ingredient list.
-///
-/// Keep the height in sync with `RecipeDetailsSkeleton`.
+// "Servings  - 4 +": changes the amounts shown in the ingredient list.
+// Keep the height in sync with `RecipeDetailsSkeleton`.
 class ServingsStepper extends StatelessWidget {
   const ServingsStepper({super.key});
 

@@ -5,27 +5,27 @@ import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:kitchenary/services/notification_service.dart';
 import 'package:timezone/timezone.dart' as tz;
 
-/// `NotificationService` backed by `flutter_local_notifications`.
-///
-/// Starts itself the first time a timer is set, so the notification
-/// permission is asked at the moment it makes sense.
+// `NotificationService` backed by `flutter_local_notifications`.
+//
+// Starts itself the first time a timer is set, so the notification
+// permission is asked at the moment it makes sense.
 final class LocalNotificationService implements NotificationService {
   LocalNotificationService({FlutterLocalNotificationsPlugin? plugin})
       : _plugin = plugin ?? FlutterLocalNotificationsPlugin();
 
-  /// Android freezes a channel's sound once it exists, so changing the sound
-  /// needs a new id (and deleting the old channel).
+  // Android freezes a channel's sound once it exists, so changing the sound
+  // needs a new id (and deleting the old channel).
   static const String _channelId = 'kitchenary_timers_alarm_v2';
   static const List<String> _oldChannelIds = ['kitchenary_timers_alarm'];
   static const String _channelName = 'Cooking timers';
   static const String _channelDescription =
       'Rings when a cooking timer you started is done.';
 
-  /// `android/app/src/main/res/raw/timer_alarm.wav`.
+  // `android/app/src/main/res/raw/timer_alarm.wav`.
   static const AndroidNotificationSound _sound =
       RawResourceAndroidNotificationSound('timer_alarm');
 
-  /// Android's FLAG_INSISTENT: keep sounding until the user reacts.
+  // Android's FLAG_INSISTENT: keep sounding until the user reacts.
   static const int _insistentFlag = 4;
 
   static final NotificationDetails _details = NotificationDetails(

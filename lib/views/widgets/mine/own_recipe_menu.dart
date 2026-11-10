@@ -8,7 +8,7 @@ import 'package:provider/provider.dart';
 
 enum _OwnRecipeAction { edit, delete }
 
-/// The "..." menu on one of the user's own recipes: edit or delete.
+// The "..." menu on one of the user's own recipes: edit or delete.
 class OwnRecipeMenu extends StatelessWidget {
   const OwnRecipeMenu({required this.recipe, super.key});
 

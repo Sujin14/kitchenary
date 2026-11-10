@@ -5,7 +5,7 @@ import 'package:kitchenary/core/extensions/context_extensions.dart';
 import 'package:kitchenary/views/widgets/home/home_filter_sheet.dart';
 import 'package:provider/provider.dart';
 
-/// Round filter icon; shows a dot when a filter is narrowing the feed.
+// Round filter icon; shows a dot when a filter is narrowing the feed.
 class HomeFilterButton extends StatelessWidget {
   const HomeFilterButton({super.key});
 

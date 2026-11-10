@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:kitchenary/core/extensions/context_extensions.dart';
 
-/// One ingredient line (already scaled) with a bullet.
-///
-/// Keep the layout in sync with `IngredientRowSkeleton`.
+// One ingredient line (already scaled) with a bullet.
+//
+// Keep the layout in sync with `IngredientRowSkeleton`.
 class IngredientRow extends StatelessWidget {
   const IngredientRow({required this.text, super.key});
 

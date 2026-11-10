@@ -1,6 +1,6 @@
 import 'package:kitchenary/services/local_store.dart';
 
-/// [LocalStore] that keeps everything in memory. Used in tests.
+// [LocalStore] that keeps everything in memory. Used in tests.
 final class MemoryLocalStore implements LocalStore {
   final Map<String, String> data = {};
 

@@ -1,15 +1,15 @@
-/// A time found inside a recipe step, e.g. "10 minutes".
+// A time found inside a recipe step, e.g. "10 minutes".
 class DetectedDuration {
   const DetectedDuration({required this.duration, required this.text});
 
   final Duration duration;
 
-  /// The words it was read from, e.g. "1 hour 30 minutes".
+  // The words it was read from, e.g. "1 hour 30 minutes".
   final String text;
 }
 
-/// Finds cooking times ("simmer for 10 minutes") in step text so cooking mode
-/// can offer a one-tap timer. Pure Dart.
+// Finds cooking times ("simmer for 10 minutes") in step text so cooking mode
+// can offer a one-tap timer. Pure Dart.
 abstract final class StepDurationParser {
   static const int maxResults = 3;
   static const Duration maxDuration = Duration(hours: 24);

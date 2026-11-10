@@ -5,11 +5,11 @@ import 'package:kitchenary/models/recipe.dart';
 import 'package:kitchenary/models/recipe_filter.dart';
 import 'package:kitchenary/services/local_store.dart';
 
-/// Recipes kept on the device so the app still works without internet.
-///
-/// Holds a bounded number of entries; when it is full the oldest go first.
-/// Each entry is either one full recipe or a list of recipes (a feed or a
-/// search result).
+// Recipes kept on the device so the app still works without internet.
+//
+// Holds a bounded number of entries; when it is full the oldest go first.
+// Each entry is either one full recipe or a list of recipes (a feed or a
+// search result).
 class RecipeCache {
   RecipeCache(this._store, {this.maxEntries = 300})
       : _keys = _loadIndex(_store);
@@ -19,7 +19,7 @@ class RecipeCache {
   final LocalStore _store;
   final int maxEntries;
 
-  /// Cached keys, oldest first. Also saved on the device.
+  // Cached keys, oldest first. Also saved on the device.
   final List<String> _keys;
 
   static String recipeKey(String id) => '$_recipePrefix$id';
@@ -62,9 +62,9 @@ class RecipeCache {
     return recipe.id.isEmpty ? null : recipe;
   }
 
-  /// The most recently saved feed recipes, merged from every saved feed.
-  /// Used when the exact feed asked for was never saved (for example the
-  /// random mix, which is different each time). Null when there are none.
+  // The most recently saved feed recipes, merged from every saved feed.
+  // Used when the exact feed asked for was never saved (for example the
+  // random mix, which is different each time). Null when there are none.
   List<Recipe>? readAnyBrowse({int limit = 24}) {
     const prefix = '${StorageKeys.cachePrefix}browse.';
     final merged = <Recipe>[];
@@ -79,7 +79,7 @@ class RecipeCache {
     return merged.isEmpty ? null : merged;
   }
 
-  /// Every full (not summary) recipe in the cache, for offline "surprise me".
+  // Every full (not summary) recipe in the cache, for offline "surprise me".
   List<Recipe> allFullRecipes() {
     final recipes = <Recipe>[];
     for (final key in _keys) {

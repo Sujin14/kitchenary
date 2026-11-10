@@ -6,7 +6,7 @@ import 'package:kitchenary/models/cooking_session.dart';
 import 'package:kitchenary/views/widgets/common/primary_button.dart';
 import 'package:provider/provider.dart';
 
-/// Opens step-by-step cooking mode (hidden when there is no method).
+// Opens step-by-step cooking mode (hidden when there is no method).
 class StartCookingButton extends StatelessWidget {
   const StartCookingButton({super.key});
 

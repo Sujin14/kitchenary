@@ -10,14 +10,14 @@ import 'package:kitchenary/models/recipe_filter.dart';
 import 'package:kitchenary/services/api_exception.dart';
 import 'package:kitchenary/services/recipe_service.dart';
 
-/// Drives the Home feed: search text, category chips and results.
+// Drives the Home feed: search text, category chips and results.
 class HomeController extends ChangeNotifier {
   HomeController(this._service, {Random? random})
       : _random = random ?? Random() {
     showMix();
   }
 
-  /// How many random categories fill the mixed feed.
+  // How many random categories fill the mixed feed.
   static const int mixSize = 6;
 
   final RecipeService _service;
@@ -43,13 +43,13 @@ class HomeController extends ChangeNotifier {
   String get query => _query;
   bool get isSearching => _query.isNotEmpty;
 
-  /// True while no search, pill or filter is chosen: the feed is a random
-  /// mix of foods.
+  // True while no search, pill or filter is chosen: the feed is a random
+  // mix of foods.
   bool get isMixed => _query.isEmpty && _category == null;
   bool get loadingRandom => _loadingRandom;
   List<RecipeCategory> get categories => RecipeCategory.all;
 
-  /// Called on every keystroke; waits for a pause before hitting the API.
+  // Called on every keystroke; waits for a pause before hitting the API.
   void onSearchChanged(String text) {
     _debounce?.cancel();
     _debounce = Timer(AppConstants.searchDebounce, () => search(text));
@@ -74,7 +74,7 @@ class HomeController extends ChangeNotifier {
     showMix();
   }
 
-  /// Shows a fresh random mix of foods (the default feed).
+  // Shows a fresh random mix of foods (the default feed).
   void showMix() {
     _debounce?.cancel();
     _query = '';
@@ -83,8 +83,8 @@ class HomeController extends ChangeNotifier {
     _load();
   }
 
-  /// Selects [category]. Tapping the selected chip again keeps it selected
-  /// but clears any sub-chip.
+  // Selects [category]. Tapping the selected chip again keeps it selected
+  // but clears any sub-chip.
   void selectCategory(RecipeCategory category) {
     _query = '';
     _category = category;
@@ -92,8 +92,8 @@ class HomeController extends ChangeNotifier {
     _load();
   }
 
-  /// Sets the category and, optionally, one of its sub-filters in one go
-  /// (used by the filter sheet).
+  // Sets the category and, optionally, one of its sub-filters in one go
+  // (used by the filter sheet).
   void applyFilter(RecipeCategory category, [RecipeFilter? sub]) {
     _query = '';
     _category = category;
@@ -101,8 +101,8 @@ class HomeController extends ChangeNotifier {
     _load();
   }
 
-  /// Tap on the Veg / Non-veg pill. Selects it; a second tap clears a
-  /// sub-filter, and a third goes back to the default feed.
+  // Tap on the Veg / Non-veg pill. Selects it; a second tap clears a
+  // sub-filter, and a third goes back to the default feed.
   void toggleDiet(RecipeCategory category) {
     if (_category != category) {
       applyFilter(category);
@@ -113,11 +113,11 @@ class HomeController extends ChangeNotifier {
     }
   }
 
-  /// Back to the default feed: a random mix.
+  // Back to the default feed: a random mix.
   void clearFilters() => showMix();
 
-  /// True when something chosen in the filter sheet is narrowing the feed
-  /// (anything other than the random mix or a plain Veg / Non-veg pill).
+  // True when something chosen in the filter sheet is narrowing the feed
+  // (anything other than the random mix or a plain Veg / Non-veg pill).
   bool get hasActiveFilter {
     final category = _category;
     if (category == null) return false;
@@ -125,7 +125,7 @@ class HomeController extends ChangeNotifier {
     return !RecipeCategory.diets.contains(category);
   }
 
-  /// Selects a sub-chip; tapping it again returns to the whole category.
+  // Selects a sub-chip; tapping it again returns to the whole category.
   void selectSubcategory(RecipeFilter filter) {
     if (_category == null) return;
     _subcategory = _subcategory == filter ? null : filter;
@@ -134,7 +134,7 @@ class HomeController extends ChangeNotifier {
 
   Future<void> retry() => _load();
 
-  /// A random full recipe, or null if the request failed.
+  // A random full recipe, or null if the request failed.
   Future<Recipe?> pickRandom() async {
     if (_loadingRandom) return null;
     _loadingRandom = true;

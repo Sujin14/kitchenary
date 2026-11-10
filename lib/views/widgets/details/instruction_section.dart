@@ -5,7 +5,7 @@ import 'package:kitchenary/models/recipe.dart';
 import 'package:kitchenary/views/widgets/common/section_title.dart';
 import 'package:kitchenary/views/widgets/details/numbered_step.dart';
 
-/// The cooking method as numbered steps.
+// The cooking method as numbered steps.
 class InstructionSection extends StatelessWidget {
   const InstructionSection({required this.recipe, super.key});
 

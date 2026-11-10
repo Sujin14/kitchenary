@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:kitchenary/core/extensions/context_extensions.dart';
 
-/// One row in a settings card: icon, title, optional detail and a chevron.
+// One row in a settings card: icon, title, optional detail and a chevron.
 class SettingsTile extends StatelessWidget {
   const SettingsTile({
     required this.icon,
@@ -18,7 +18,7 @@ class SettingsTile extends StatelessWidget {
   final String? subtitle;
   final VoidCallback? onTap;
 
-  /// Draws the row in the error colour (for actions that delete things).
+  // Draws the row in the error colour (for actions that delete things).
   final bool destructive;
 
   @override

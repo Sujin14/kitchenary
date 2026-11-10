@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:kitchenary/views/widgets/common/shimmer_scope.dart';
 import 'package:kitchenary/views/widgets/common/skeleton_box.dart';
 
-/// Shimmering stand-in while a photo downloads.
+// Shimmering stand-in while a photo downloads.
 class ImageSkeleton extends StatelessWidget {
   const ImageSkeleton({this.width = double.infinity, this.height, super.key});
 

@@ -4,7 +4,7 @@ import 'package:kitchenary/controllers/cooking_controller.dart';
 import 'package:kitchenary/core/extensions/context_extensions.dart';
 import 'package:provider/provider.dart';
 
-/// Large Back and Next buttons, easy to hit with messy hands.
+// Large Back and Next buttons, easy to hit with messy hands.
 class CookingBottomBar extends StatelessWidget {
   const CookingBottomBar({
     required this.onBack,

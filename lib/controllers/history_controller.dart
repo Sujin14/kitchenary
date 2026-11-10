@@ -3,8 +3,8 @@ import 'package:kitchenary/core/constants/app_constants.dart';
 import 'package:kitchenary/models/recipe.dart';
 import 'package:kitchenary/services/recipe_list_repository.dart';
 
-/// Recently viewed recipes, newest first, capped at
-/// [AppConstants.historyLimit].
+// Recently viewed recipes, newest first, capped at
+// [AppConstants.historyLimit].
 class HistoryController extends ChangeNotifier {
   HistoryController(this._repository) : _recipes = _repository.load();
 
@@ -15,8 +15,8 @@ class HistoryController extends ChangeNotifier {
   int get count => _recipes.length;
   bool get isEmpty => _recipes.isEmpty;
 
-  /// Moves [recipe] to the top of the list. Summaries and the user's own
-  /// recipes are not recorded.
+  // Moves [recipe] to the top of the list. Summaries and the user's own
+  // recipes are not recorded.
   Future<void> record(Recipe recipe) async {
     if (recipe.isSummary || recipe.isOwn) return;
     final rest = _recipes.where((r) => r.id != recipe.id);

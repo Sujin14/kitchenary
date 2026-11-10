@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:kitchenary/core/extensions/context_extensions.dart';
 
-/// A round icon button that stays legible over photos.
+// A round icon button that stays legible over photos.
 class CircleIconButton extends StatelessWidget {
   const CircleIconButton({
     required this.icon,
@@ -15,7 +15,7 @@ class CircleIconButton extends StatelessWidget {
   final String tooltip;
   final VoidCallback? onPressed;
 
-  /// Defaults to the primary text colour.
+  // Defaults to the primary text colour.
   final Color? iconColor;
 
   @override

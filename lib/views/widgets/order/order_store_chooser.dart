@@ -5,7 +5,7 @@ import 'package:kitchenary/core/constants/grocery_stores.dart';
 import 'package:kitchenary/core/extensions/context_extensions.dart';
 import 'package:provider/provider.dart';
 
-/// First step: which store to order from.
+// First step: which store to order from.
 class OrderStoreChooser extends StatelessWidget {
   const OrderStoreChooser({super.key});
 

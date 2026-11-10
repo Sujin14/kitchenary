@@ -7,10 +7,9 @@ import 'package:kitchenary/views/widgets/common/app_snack_bar.dart';
 import 'package:kitchenary/views/widgets/common/circle_icon_button.dart';
 import 'package:provider/provider.dart';
 
-/// Heart button that saves or un-saves a recipe. Hidden for the user's own
-/// recipes, which already live under "My recipes".
-///
-/// [compact] is the small version used on grid cards.
+// Heart button that saves or un-saves a recipe. Hidden for the user's own
+// recipes, which already live under "My recipes".
+// [compact] is the small version used on grid cards.
 class SaveRecipeButton extends StatelessWidget {
   const SaveRecipeButton({
     required this.recipe,

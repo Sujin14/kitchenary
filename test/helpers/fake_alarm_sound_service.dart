@@ -1,6 +1,6 @@
 import 'package:kitchenary/services/alarm_sound_service.dart';
 
-/// Records whether the in-app alarm would be ringing.
+// Records whether the in-app alarm would be ringing.
 class FakeAlarmSoundService implements AlarmSoundService {
   bool isPlaying = false;
   int playCalls = 0;

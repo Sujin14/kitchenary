@@ -2,9 +2,8 @@ import 'package:flutter/foundation.dart';
 import 'package:kitchenary/models/cooking_session.dart';
 import 'package:kitchenary/models/recipe.dart';
 
-/// Drives cooking mode.
-///
-/// Pages: 0 = gather ingredients, 1..n = the method steps, n+1 = all done.
+// Drives cooking mode.
+// Pages: 0 = gather ingredients, 1..n = the method steps, n+1 = all done.
 class CookingController extends ChangeNotifier {
   CookingController(this.session)
       : _ingredientTexts = session.ingredientTexts;
@@ -19,7 +18,7 @@ class CookingController extends ChangeNotifier {
   List<String> get steps => recipe.steps;
   int get stepCount => steps.length;
 
-  /// Ingredient lines with amounts scaled to the chosen servings.
+  // Ingredient lines with amounts scaled to the chosen servings.
   List<String> get ingredientTexts => List.unmodifiable(_ingredientTexts);
 
   int get pageCount => stepCount + 2;
@@ -30,10 +29,10 @@ class CookingController extends ChangeNotifier {
   bool get isStepPage => !isIngredientsPage && !isDonePage;
   bool get isLastStep => _page == stepCount;
 
-  /// The 1-based number of the current step (only on step pages).
+  // The 1-based number of the current step (only on step pages).
   int get stepNumber => _page;
 
-  /// 0 on the first page, 1 on the last.
+  // 0 on the first page, 1 on the last.
   double get progress => pageCount <= 1 ? 1 : _page / (pageCount - 1);
 
   void setPage(int value) {

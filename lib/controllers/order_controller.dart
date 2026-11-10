@@ -2,11 +2,10 @@ import 'package:flutter/foundation.dart';
 import 'package:kitchenary/models/grocery_store.dart';
 import 'package:kitchenary/models/shopping_item.dart';
 
-/// Walks through the shopping list one item at a time for one grocery store,
-/// so everything ends up in a single cart and a single order.
-///
-/// The list of items is fixed when the flow starts. Ticking items off on the
-/// shopping list itself is done by the screen, not here.
+// Walks through the shopping list one item at a time for one grocery store,
+// so everything ends up in a single cart and a single order.
+// The list of items is fixed when the flow starts. Ticking items off on the
+// shopping list itself is done by the screen, not here.
 class OrderController extends ChangeNotifier {
   OrderController(Iterable<ShoppingItem> items)
       : _items = List.unmodifiable(items);
@@ -22,23 +21,23 @@ class OrderController extends ChangeNotifier {
   GroceryStore? get store => _store;
   bool get hasStore => _store != null;
 
-  /// 0-based position of the current item.
+  // 0-based position of the current item.
   int get index => _index;
 
-  /// 1-based position, for "Item 2 of 7".
+  // 1-based position, for "Item 2 of 7".
   int get position => _index + 1;
 
   bool get isFirst => _index == 0;
 
-  /// True once every item has been gone through.
+  // True once every item has been gone through.
   bool get isDone => hasStore && _index >= total;
 
-  /// The item being shopped for, or null before a store is chosen or after
-  /// the last item.
+  // The item being shopped for, or null before a store is chosen or after
+  // the last item.
   ShoppingItem? get current =>
       hasStore && _index < total ? _items[_index] : null;
 
-  /// How far along, from 0 to 1.
+  // How far along, from 0 to 1.
   double get progress => total == 0 ? 0 : _index / total;
 
   void chooseStore(GroceryStore store) {

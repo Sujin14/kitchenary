@@ -2,7 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:kitchenary/models/recipe.dart';
 import 'package:kitchenary/services/recipe_list_repository.dart';
 
-/// Recipes the user wrote themselves. Newest first, stored on the device.
+// Recipes the user wrote themselves. Newest first, stored on the device.
 class OwnRecipesController extends ChangeNotifier {
   OwnRecipesController(this._repository) : _recipes = _repository.load();
 
@@ -14,13 +14,13 @@ class OwnRecipesController extends ChangeNotifier {
   int get count => _recipes.length;
   bool get isEmpty => _recipes.isEmpty;
 
-  /// A fresh id for a new recipe.
+  // A fresh id for a new recipe.
   String newId() {
     _idCounter++;
     return '${Recipe.ownPrefix}${DateTime.now().microsecondsSinceEpoch}_$_idCounter';
   }
 
-  /// Adds a new recipe, or replaces the one with the same id.
+  // Adds a new recipe, or replaces the one with the same id.
   Future<void> upsert(Recipe recipe) async {
     final exists = _recipes.any((r) => r.id == recipe.id);
     if (exists) {

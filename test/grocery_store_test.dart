@@ -7,12 +7,12 @@ void main() {
     const store = GroceryStore(
       id: 'x',
       name: 'X',
-      searchUrl: 'https://example.com/search?q={query}',
-      homeUrl: 'https://example.com',
+      searchUrl: 'https://store.test/search?q={query}',
+      homeUrl: 'https://store.test',
     );
     expect(
       store.searchFor(' Green chilli '),
-      'https://example.com/search?q=Green+chilli',
+      'https://store.test/search?q=Green+chilli',
     );
   });
 

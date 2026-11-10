@@ -6,7 +6,7 @@ import 'package:kitchenary/views/widgets/shopping/shopping_add_field.dart';
 import 'package:kitchenary/views/widgets/shopping/shopping_item_tile.dart';
 import 'package:provider/provider.dart';
 
-/// Add box, actions and the items; a friendly message when the list is empty.
+// Add box, actions and the items; a friendly message when the list is empty.
 class ShoppingListView extends StatelessWidget {
   const ShoppingListView({super.key});
 

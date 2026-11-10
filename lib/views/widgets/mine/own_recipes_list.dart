@@ -8,7 +8,7 @@ import 'package:kitchenary/views/widgets/mine/own_recipe_menu.dart';
 import 'package:kitchenary/views/widgets/recipe/recipe_list_tile.dart';
 import 'package:provider/provider.dart';
 
-/// The recipes the user wrote, or an invitation to write the first one.
+// The recipes the user wrote, or an invitation to write the first one.
 class OwnRecipesList extends StatelessWidget {
   const OwnRecipesList({super.key});
 

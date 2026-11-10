@@ -8,7 +8,7 @@ import 'package:kitchenary/views/widgets/home/category_chip.dart';
 import 'package:kitchenary/views/widgets/home/filter_chip_section.dart';
 import 'package:provider/provider.dart';
 
-/// Opens the filter sheet.
+// Opens the filter sheet.
 Future<void> showHomeFilterSheet(BuildContext context) {
   return showModalBottomSheet<void>(
     context: context,
@@ -18,8 +18,8 @@ Future<void> showHomeFilterSheet(BuildContext context) {
   );
 }
 
-/// Every filter except the Veg / Non-veg pills: cuisine and meals, vegetarian
-/// ingredients and meats. Picking one closes the sheet and reloads the feed.
+// Every filter except the Veg / Non-veg pills: cuisine and meals, vegetarian
+// ingredients and meats. Picking one closes the sheet and reloads the feed.
 class HomeFilterSheet extends StatelessWidget {
   const HomeFilterSheet({super.key});
 

@@ -6,7 +6,7 @@ import 'package:kitchenary/views/widgets/order/order_item_page.dart';
 import 'package:kitchenary/views/widgets/order/order_store_chooser.dart';
 import 'package:provider/provider.dart';
 
-/// Shows the right step: nothing to order, choose a store, an item, or done.
+// Shows the right step: nothing to order, choose a store, an item, or done.
 class OrderView extends StatelessWidget {
   const OrderView({super.key});
 

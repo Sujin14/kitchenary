@@ -5,7 +5,7 @@ import 'package:kitchenary/core/extensions/context_extensions.dart';
 import 'package:kitchenary/core/theme/app_text_styles.dart';
 import 'package:provider/provider.dart';
 
-/// Last page: a short well-done message.
+// Last page: a short well-done message.
 class CookingDonePage extends StatelessWidget {
   const CookingDonePage({super.key});
 

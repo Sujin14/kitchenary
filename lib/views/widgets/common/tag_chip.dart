@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:kitchenary/core/extensions/context_extensions.dart';
 
-/// A small colour-coded label used for recipe metadata.
+// A small colour-coded label used for recipe metadata.
 class TagChip extends StatelessWidget {
   const TagChip({
     required this.label,

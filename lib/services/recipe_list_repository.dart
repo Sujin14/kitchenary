@@ -3,14 +3,14 @@ import 'dart:convert';
 import 'package:kitchenary/models/recipe.dart';
 import 'package:kitchenary/services/local_store.dart';
 
-/// Saves a list of recipes (saved, history, own recipes) as JSON under [key].
+// Saves a list of recipes (saved, history, own recipes) as JSON under [key].
 class RecipeListRepository {
   const RecipeListRepository(this._store, this._key);
 
   final LocalStore _store;
   final String _key;
 
-  /// Returns the stored recipes, or an empty list if nothing valid is stored.
+  // Returns the stored recipes, or an empty list if nothing valid is stored.
   List<Recipe> load() {
     final raw = _store.read(_key);
     if (raw == null || raw.isEmpty) return const [];

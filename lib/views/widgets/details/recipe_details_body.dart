@@ -12,7 +12,7 @@ import 'package:kitchenary/views/widgets/details/start_cooking_button.dart';
 import 'package:kitchenary/views/widgets/details/video_link_button.dart';
 import 'package:provider/provider.dart';
 
-/// Scrollable content of the recipe details screen.
+// Scrollable content of the recipe details screen.
 class RecipeDetailsBody extends StatelessWidget {
   const RecipeDetailsBody({super.key});
 

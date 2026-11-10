@@ -4,8 +4,8 @@ import 'package:kitchenary/core/constants/legal_content.dart';
 import 'package:kitchenary/core/extensions/context_extensions.dart';
 import 'package:kitchenary/core/navigation/app_navigation.dart';
 
-/// "By continuing you agree to our Terms of Use and Privacy Policy" with
-/// both names opening the documents.
+// "By continuing you agree to our Terms of Use and Privacy Policy" with
+// both names opening the documents.
 class LegalConsent extends StatelessWidget {
   const LegalConsent({super.key});
 
@@ -20,6 +20,7 @@ class LegalConsent extends StatelessWidget {
         fontWeight: FontWeight.w700,
       ),
     );
+    
     final plain = context.textTheme.bodySmall?.copyWith(
       color: p.textSecondary,
     );

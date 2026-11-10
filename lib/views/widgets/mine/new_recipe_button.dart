@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:kitchenary/core/extensions/context_extensions.dart';
 import 'package:kitchenary/core/navigation/app_navigation.dart';
 
-/// Round "+" button that opens an empty recipe form.
+// Round "+" button that opens an empty recipe form.
 class NewRecipeButton extends StatelessWidget {
   const NewRecipeButton({super.key});
 

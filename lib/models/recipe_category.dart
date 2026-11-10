@@ -1,9 +1,9 @@
 import 'package:kitchenary/models/recipe_filter.dart';
 
-/// A top-level browse chip on the Home screen, with optional sub-chips.
-///
-/// The ingredient values below are TheMealDB ingredient names; if a chip
-/// returns nothing on a device, check the spelling here (one place only).
+// A top-level browse chip on the Home screen, with optional sub-chips.
+//
+// The ingredient values below are TheMealDB ingredient names; if a chip
+// returns nothing on a device, check the spelling here (one place only).
 class RecipeCategory {
   const RecipeCategory({
     required this.name,
@@ -13,7 +13,7 @@ class RecipeCategory {
 
   final String name;
 
-  /// Requests merged to fill the feed when no sub-chip is selected.
+  // Requests merged to fill the feed when no sub-chip is selected.
   final List<RecipeFilter> filters;
   final List<RecipeFilter> subcategories;
 
@@ -67,8 +67,8 @@ class RecipeCategory {
     filters: [RecipeFilter(FilterKind.category, 'Dessert')],
   );
 
-  /// Where the "mixed" Home feed (no pill or filter chosen) takes its
-  /// recipes from: a few of these are picked at random each time.
+  // Where the "mixed" Home feed (no pill or filter chosen) takes its
+  // recipes from: a few of these are picked at random each time.
   static const List<RecipeFilter> mixPool = [
     RecipeFilter(FilterKind.category, 'Beef'),
     RecipeFilter(FilterKind.category, 'Breakfast'),
@@ -86,10 +86,10 @@ class RecipeCategory {
     RecipeFilter(FilterKind.area, 'Indian'),
   ];
 
-  /// The two quick pills on Home.
+  // The two quick pills on Home.
   static const List<RecipeCategory> diets = [veg, nonVeg];
 
-  /// Everything else, offered in the filter sheet.
+  // Everything else, offered in the filter sheet.
   static const List<RecipeCategory> others = [indian, breakfast, dessert];
 
   static const List<RecipeCategory> all = [

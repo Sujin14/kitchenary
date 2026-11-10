@@ -5,7 +5,7 @@ import 'package:kitchenary/core/extensions/context_extensions.dart';
 import 'package:kitchenary/models/diet_type.dart';
 import 'package:provider/provider.dart';
 
-/// Choose Veg, Non-veg or Vegan for the recipe being written.
+// Choose Veg, Non-veg or Vegan for the recipe being written.
 class DietSelector extends StatelessWidget {
   const DietSelector({super.key});
 

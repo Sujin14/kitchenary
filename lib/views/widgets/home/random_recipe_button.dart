@@ -6,7 +6,7 @@ import 'package:kitchenary/core/navigation/app_navigation.dart';
 import 'package:kitchenary/views/widgets/common/app_snack_bar.dart';
 import 'package:provider/provider.dart';
 
-/// "Surprise me": opens a random recipe.
+// "Surprise me": opens a random recipe.
 class RandomRecipeButton extends StatelessWidget {
   const RandomRecipeButton({super.key});
 

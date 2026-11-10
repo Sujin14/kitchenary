@@ -1,18 +1,18 @@
-/// Scales the amount at the start of a recipe measure, e.g.
-/// `1 1/2 cup` x 2 = `3 cup`, `200g` x 2.5 = `500g`.
-///
-/// Measures that do not start with a number ("to taste", "Juice of 1") are
-/// returned unchanged. Pure Dart, no Flutter.
+// Scales the amount at the start of a recipe measure, e.g.
+// `1 1/2 cup` x 2 = `3 cup`, `200g` x 2.5 = `500g`.
+//
+// Measures that do not start with a number ("to taste", "Juice of 1") are
+// returned unchanged. Pure Dart, no Flutter.
 abstract final class QuantityScaler {
   static const String _numberSource =
       r'\d+\s+\d+/\d+|\d+/\d+|\d*\.\d+|\d+';
 
-  /// A number, optionally followed by a range end ("2-3", "2 to 3").
+  // A number, optionally followed by a range end ("2-3", "2 to 3").
   static final RegExp _leading = RegExp(
     '^($_numberSource)(?:\\s*(?:-|–|to)\\s*($_numberSource))?',
   );
 
-  /// "g/14oz": a second, alternative unit that must not be scaled separately.
+  // "g/14oz": a second, alternative unit that must not be scaled separately.
   static final RegExp _alternativeUnit = RegExp(r'^(\s*[A-Za-z]+\.?)\s*/\s*\d.*$');
 
   static const Map<String, String> _unicodeFractions = {
@@ -67,7 +67,7 @@ abstract final class QuantityScaler {
     '',
   ];
 
-  /// Returns [measure] with its leading amount multiplied by [factor].
+  // Returns [measure] with its leading amount multiplied by [factor].
   static String scale(String measure, double factor) {
     final original = measure.trim();
     if (original.isEmpty || factor == 1 || factor <= 0) return original;
@@ -139,7 +139,7 @@ abstract final class QuantityScaler {
     return double.tryParse(s);
   }
 
-  /// Grams and millilitres: whole numbers (nearest 5 above 100).
+  // Grams and millilitres: whole numbers (nearest 5 above 100).
   static String _metric(double value) {
     if (value >= 100) return ((value / 5).round() * 5).toString();
     if (value >= 10) return value.round().toString();
@@ -152,7 +152,7 @@ abstract final class QuantityScaler {
     return text.replaceFirst(RegExp(r'0+$'), '').replaceFirst(RegExp(r'\.$'), '');
   }
 
-  /// Cups, spoons and counts: whole numbers and kitchen fractions.
+  // Cups, spoons and counts: whole numbers and kitchen fractions.
   static String _fraction(double value) {
     if (value >= 20) return value.round().toString();
     var whole = value.floor();

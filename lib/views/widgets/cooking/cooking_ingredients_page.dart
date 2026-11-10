@@ -6,7 +6,7 @@ import 'package:kitchenary/core/theme/app_text_styles.dart';
 import 'package:kitchenary/views/widgets/cooking/cooking_ingredient_tile.dart';
 import 'package:provider/provider.dart';
 
-/// First page of cooking mode: gather and tick off the ingredients.
+// First page of cooking mode: gather and tick off the ingredients.
 class CookingIngredientsPage extends StatelessWidget {
   const CookingIngredientsPage({super.key});
 

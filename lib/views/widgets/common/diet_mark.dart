@@ -3,14 +3,14 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:kitchenary/core/extensions/context_extensions.dart';
 import 'package:kitchenary/models/diet_type.dart';
 
-/// The Indian veg / non-veg symbol: a square outline with a coloured dot.
-/// Renders nothing when the diet is unknown.
+// The Indian veg / non-veg symbol: a square outline with a coloured dot.
+// Renders nothing when the diet is unknown.
 class DietMark extends StatelessWidget {
   const DietMark({required this.diet, this.size, super.key});
 
   final DietType diet;
 
-  /// Side length; defaults to 18 (scaled).
+  // Side length; defaults to 18 (scaled).
   final double? size;
 
   @override

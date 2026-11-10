@@ -7,7 +7,7 @@ import 'package:kitchenary/views/widgets/editor/ingredient_editor.dart';
 import 'package:kitchenary/views/widgets/editor/servings_editor.dart';
 import 'package:kitchenary/views/widgets/editor/step_editor.dart';
 
-/// The scrollable recipe form.
+// The scrollable recipe form.
 class RecipeEditorForm extends StatelessWidget {
   const RecipeEditorForm({super.key});
 

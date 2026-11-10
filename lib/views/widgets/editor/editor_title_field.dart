@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:kitchenary/controllers/recipe_editor_controller.dart';
 import 'package:provider/provider.dart';
 
-/// "Recipe name" text field.
+// "Recipe name" text field.
 class EditorTitleField extends StatelessWidget {
   const EditorTitleField({super.key});
 

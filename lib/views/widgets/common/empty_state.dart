@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:kitchenary/core/extensions/context_extensions.dart';
 
-/// Friendly placeholder for lists with nothing to show.
+// Friendly placeholder for lists with nothing to show.
 class EmptyState extends StatelessWidget {
   const EmptyState({
     required this.icon,
@@ -16,7 +16,7 @@ class EmptyState extends StatelessWidget {
   final String title;
   final String message;
 
-  /// Optional button shown under the message.
+  // Optional button shown under the message.
   final Widget? action;
 
   @override

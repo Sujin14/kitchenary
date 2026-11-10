@@ -9,7 +9,7 @@ import 'package:kitchenary/models/recipe_filter.dart';
 import 'package:kitchenary/services/api_exception.dart';
 import 'package:kitchenary/services/recipe_service.dart';
 
-/// [RecipeService] backed by TheMealDB's JSON API.
+// [RecipeService] backed by TheMealDB's JSON API.
 class MealDbRecipeService implements RecipeService {
   MealDbRecipeService({http.Client? client, String? baseUrl})
       : _client = client ?? http.Client(),
@@ -20,7 +20,7 @@ class MealDbRecipeService implements RecipeService {
 
   static const Duration _timeout = Duration(seconds: 15);
 
-  /// Full recipes already fetched in this session.
+  // Full recipes already fetched in this session.
   final Map<String, Recipe> _fullRecipes = {};
 
   @override
@@ -90,7 +90,7 @@ class MealDbRecipeService implements RecipeService {
     return recipe;
   }
 
-  /// Calls [endpoint] and returns the `meals` array (empty when null).
+  // Calls [endpoint] and returns the `meals` array (empty when null).
   Future<List<Map<String, dynamic>>> _getMeals(
     String endpoint,
     Map<String, String> query,

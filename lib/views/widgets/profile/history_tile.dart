@@ -4,7 +4,7 @@ import 'package:kitchenary/core/navigation/app_navigation.dart';
 import 'package:kitchenary/views/widgets/profile/settings_tile.dart';
 import 'package:provider/provider.dart';
 
-/// "Recently viewed" row with a count; opens the history screen.
+// "Recently viewed" row with a count; opens the history screen.
 class HistoryTile extends StatelessWidget {
   const HistoryTile({super.key});
 

@@ -9,7 +9,7 @@ import 'package:kitchenary/views/widgets/common/primary_button.dart';
 import 'package:kitchenary/views/widgets/common/secondary_button.dart';
 import 'package:provider/provider.dart';
 
-/// Last step: open the store, check the cart, place one order.
+// Last step: open the store, check the cart, place one order.
 class OrderDonePage extends StatelessWidget {
   const OrderDonePage({super.key});
 

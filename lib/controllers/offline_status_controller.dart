@@ -1,7 +1,7 @@
 import 'package:flutter/foundation.dart';
 
-/// Whether the recipes on screen came from the phone's copy because the
-/// recipe service could not be reached.
+// Whether the recipes on screen came from the phone's copy because the
+// recipe service could not be reached.
 class OfflineStatusController extends ChangeNotifier {
   bool _offline = false;
 

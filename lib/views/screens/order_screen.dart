@@ -4,7 +4,7 @@ import 'package:kitchenary/controllers/shopping_list_controller.dart';
 import 'package:kitchenary/views/widgets/order/order_view.dart';
 import 'package:provider/provider.dart';
 
-/// Guided ordering: pick a store, then add each item to one cart.
+// Guided ordering: pick a store, then add each item to one cart.
 class OrderScreen extends StatelessWidget {
   const OrderScreen({super.key});
 

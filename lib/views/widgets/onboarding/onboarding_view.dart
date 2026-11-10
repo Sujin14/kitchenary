@@ -9,7 +9,7 @@ import 'package:kitchenary/views/widgets/onboarding/onboarding_page_content.dart
 import 'package:kitchenary/views/widgets/onboarding/page_dots.dart';
 import 'package:provider/provider.dart';
 
-/// The three-page welcome flow, shown once on first launch.
+// The three-page welcome flow, shown once on first launch.
 class OnboardingView extends StatefulWidget {
   const OnboardingView({super.key});
 

@@ -1,5 +1,5 @@
-/// Route paths (go_router). Widgets navigate with the helpers in
-/// `app_navigation.dart`, so they never import screens.
+// Route paths (go_router). Widgets navigate with the helpers in
+// `app_navigation.dart`, so they never import screens.
 abstract final class AppRoutes {
   static const String splash = '/';
   static const String onboarding = '/onboarding';
@@ -11,13 +11,13 @@ abstract final class AppRoutes {
   static const String shopping = '/shopping';
   static const String profile = '/profile';
 
-  /// Pattern registered with the router.
+  // Pattern registered with the router.
   static const String recipeDetails = '/recipe/:id';
 
-  /// Concrete location for a recipe.
+  // Concrete location for a recipe.
   static String recipe(String id) => '/recipe/$id';
 
-  /// Cooking mode for a recipe (needs a `CookingSession` as `extra`).
+  // Cooking mode for a recipe (needs a `CookingSession` as `extra`).
   static const String cookingPattern = '/recipe/:id/cook';
 
   static String cooking(String id) => '/recipe/$id/cook';
@@ -26,12 +26,12 @@ abstract final class AppRoutes {
   static const String recipeNew = '/mine/new';
   static const String recipeEdit = '/mine/edit';
 
-  /// Guided ordering of the shopping list (outside the tabs).
+  // Guided ordering of the shopping list (outside the tabs).
   static const String order = '/order';
 
   static const String history = '/history';
 
-  /// Pattern registered with the router; the slug picks the document.
+  // Pattern registered with the router; the slug picks the document.
   static const String legalPattern = '/legal/:slug';
 
   static String legal(String slug) => '/legal/$slug';

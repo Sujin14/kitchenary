@@ -4,7 +4,7 @@ import 'package:kitchenary/core/extensions/context_extensions.dart';
 import 'package:kitchenary/models/legal_document.dart';
 import 'package:kitchenary/views/widgets/legal/legal_section_view.dart';
 
-/// A scrollable legal document: date, introduction and sections.
+// A scrollable legal document: date, introduction and sections.
 class LegalDocumentView extends StatelessWidget {
   const LegalDocumentView({required this.document, super.key});
 

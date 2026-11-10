@@ -1,4 +1,4 @@
-/// One line on the shopping list.
+// One line on the shopping list.
 class ShoppingItem {
   const ShoppingItem({
     required this.id,
@@ -11,17 +11,17 @@ class ShoppingItem {
   final String id;
   final String name;
 
-  /// Amount, e.g. "200g". Empty for items typed in by hand.
+  // Amount, e.g. "200g". Empty for items typed in by hand.
   final String measure;
 
-  /// The recipe it came from. Empty for items typed in by hand.
+  // The recipe it came from. Empty for items typed in by hand.
   final String recipeTitle;
   final bool checked;
 
-  /// Lower-case name used to spot the same item added twice.
+  // Lower-case name used to spot the same item added twice.
   String get key => name.trim().toLowerCase();
 
-  /// "200g Chicken" or just "Chicken".
+  // "200g Chicken" or just "Chicken".
   String get displayText => measure.isEmpty ? name : '$measure $name';
 
   ShoppingItem copyWith({bool? checked}) => ShoppingItem(

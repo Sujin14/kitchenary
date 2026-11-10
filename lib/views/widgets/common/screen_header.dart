@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:kitchenary/core/extensions/context_extensions.dart';
 
-/// Title (and optional subtitle and trailing button) at the top of a tab.
+// Title (and optional subtitle and trailing button) at the top of a tab.
 class ScreenHeader extends StatelessWidget {
   const ScreenHeader({
     required this.title,

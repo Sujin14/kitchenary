@@ -4,7 +4,7 @@ import 'package:kitchenary/core/extensions/context_extensions.dart';
 import 'package:kitchenary/models/recipe.dart';
 import 'package:kitchenary/views/widgets/recipe/recipe_tag_row.dart';
 
-/// Recipe name, cuisine and metadata tags.
+// Recipe name, cuisine and metadata tags.
 class RecipeDetailsTitle extends StatelessWidget {
   const RecipeDetailsTitle({required this.recipe, super.key});
 

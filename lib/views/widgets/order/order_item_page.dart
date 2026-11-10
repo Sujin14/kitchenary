@@ -10,7 +10,7 @@ import 'package:kitchenary/views/widgets/common/primary_button.dart';
 import 'package:kitchenary/views/widgets/common/secondary_button.dart';
 import 'package:provider/provider.dart';
 
-/// One item: search it in the store, add it to the cart, move on.
+// One item: search it in the store, add it to the cart, move on.
 class OrderItemPage extends StatelessWidget {
   const OrderItemPage({super.key});
 

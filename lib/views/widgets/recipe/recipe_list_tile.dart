@@ -7,13 +7,13 @@ import 'package:kitchenary/views/widgets/common/app_card.dart';
 import 'package:kitchenary/views/widgets/common/diet_mark.dart';
 import 'package:kitchenary/views/widgets/common/recipe_image.dart';
 
-/// A compact row: small photo, title and source. Opens the details screen.
+// A compact row: small photo, title and source. Opens the details screen.
 class RecipeListTile extends StatelessWidget {
   const RecipeListTile({required this.recipe, this.trailing, super.key});
 
   final Recipe recipe;
 
-  /// Optional widget at the end of the row (for example a menu).
+  // Optional widget at the end of the row (for example a menu).
   final Widget? trailing;
 
   @override

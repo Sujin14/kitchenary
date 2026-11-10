@@ -13,15 +13,16 @@ import 'package:kitchenary/views/screens/onboarding_screen.dart';
 import 'package:kitchenary/views/screens/order_screen.dart';
 import 'package:kitchenary/views/screens/profile_screen.dart';
 import 'package:kitchenary/views/screens/recipe_details_screen.dart';
+
 import 'package:kitchenary/views/screens/recipe_editor_screen.dart';
 import 'package:kitchenary/views/screens/saved_screen.dart';
 import 'package:kitchenary/views/screens/shopping_screen.dart';
 import 'package:kitchenary/views/screens/splash_screen.dart';
 
-/// The app's go_router configuration.
-///
-/// The five tabs live in a [StatefulShellRoute] so each keeps its own scroll
-/// position. Everything else opens on top of the tabs.
+// The app's go_router configuration.
+//
+// The five tabs live in a [StatefulShellRoute] so each keeps its own scroll
+// position. Everything else opens on top of the tabs.
 abstract final class AppRouter {
   static final GoRouter router = GoRouter(
     initialLocation: AppRoutes.splash,

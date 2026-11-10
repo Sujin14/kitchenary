@@ -1,8 +1,8 @@
 import 'package:flutter/services.dart';
 import 'package:kitchenary/services/alarm_sound_service.dart';
 
-/// [AlarmSoundService] that plays `res/raw/timer_alarm.wav` on the alarm
-/// stream through `AlarmSoundPlayer` in the Android app (see `MainActivity`).
+// [AlarmSoundService] that plays `res/raw/timer_alarm.wav` on the alarm
+// stream through `AlarmSoundPlayer` in the Android app (see `MainActivity`).
 final class PlatformAlarmSoundService implements AlarmSoundService {
   const PlatformAlarmSoundService({
     MethodChannel channel = const MethodChannel(channelName),

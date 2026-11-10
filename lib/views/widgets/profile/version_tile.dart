@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:kitchenary/core/constants/app_constants.dart';
 import 'package:kitchenary/views/widgets/profile/settings_tile.dart';
 
-/// Shows the app version.
+// Shows the app version.
 class VersionTile extends StatelessWidget {
   const VersionTile({super.key});
 

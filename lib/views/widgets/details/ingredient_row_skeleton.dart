@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:kitchenary/views/widgets/common/skeleton_box.dart';
 
-/// Loading twin of `IngredientRow`: bullet, gap and one text line.
-/// [widthFactor] varies the line length so the list looks natural.
+// Loading twin of `IngredientRow`: bullet, gap and one text line.
+// [widthFactor] varies the line length so the list looks natural.
 class IngredientRowSkeleton extends StatelessWidget {
   const IngredientRowSkeleton({required this.widthFactor, super.key});
 

@@ -4,7 +4,7 @@ import 'package:kitchenary/models/recipe.dart';
 import 'package:kitchenary/views/widgets/editor/recipe_editor_form.dart';
 import 'package:provider/provider.dart';
 
-/// Write a new recipe, or edit one of the user's own ([existing]).
+// Write a new recipe, or edit one of the user's own ([existing]).
 class RecipeEditorScreen extends StatelessWidget {
   const RecipeEditorScreen({this.existing, super.key});
 

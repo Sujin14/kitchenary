@@ -3,7 +3,7 @@ import 'package:kitchenary/core/extensions/context_extensions.dart';
 import 'package:kitchenary/models/difficulty.dart';
 import 'package:kitchenary/views/widgets/common/tag_chip.dart';
 
-/// Green (easy), yellow (medium) or red (hard).
+// Green (easy), yellow (medium) or red (hard).
 class DifficultyTag extends StatelessWidget {
   const DifficultyTag({required this.difficulty, super.key});
 

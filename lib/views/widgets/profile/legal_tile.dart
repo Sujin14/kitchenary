@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:kitchenary/core/navigation/app_navigation.dart';
 import 'package:kitchenary/views/widgets/profile/settings_tile.dart';
 
-/// A row that opens one of the legal documents (see `LegalContent`).
+// A row that opens one of the legal documents (see `LegalContent`).
 class LegalTile extends StatelessWidget {
   const LegalTile({
     required this.icon,

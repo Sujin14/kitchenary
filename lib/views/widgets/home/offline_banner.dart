@@ -4,8 +4,8 @@ import 'package:kitchenary/controllers/offline_status_controller.dart';
 import 'package:kitchenary/core/extensions/context_extensions.dart';
 import 'package:provider/provider.dart';
 
-/// Tells the user the recipes shown are the copy kept on the phone.
-/// Hidden while the recipe service can be reached.
+// Tells the user the recipes shown are the copy kept on the phone.
+// Hidden while the recipe service can be reached.
 class OfflineBanner extends StatelessWidget {
   const OfflineBanner({super.key});
 

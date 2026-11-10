@@ -8,7 +8,7 @@ import 'package:kitchenary/views/widgets/home/recipe_grid_layout.dart';
 import 'package:kitchenary/views/widgets/recipe/recipe_card.dart';
 import 'package:provider/provider.dart';
 
-/// The grid of recipes, with shimmer loading, error and empty states.
+// The grid of recipes, with shimmer loading, error and empty states.
 class RecipeFeed extends StatelessWidget {
   const RecipeFeed({super.key});
 

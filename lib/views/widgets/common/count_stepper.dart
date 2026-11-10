@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:kitchenary/core/extensions/context_extensions.dart';
 
-/// A number with minus and plus buttons around it.
+// A number with minus and plus buttons around it.
 class CountStepper extends StatelessWidget {
   const CountStepper({
     required this.value,

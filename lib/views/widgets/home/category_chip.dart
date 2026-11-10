@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:kitchenary/core/extensions/context_extensions.dart';
 
-/// A selectable pill used for categories and sub-categories.
+// A selectable pill used for categories and sub-categories.
 class CategoryChip extends StatelessWidget {
   const CategoryChip({
     required this.label,

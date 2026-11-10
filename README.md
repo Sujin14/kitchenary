@@ -37,7 +37,9 @@ If it changed `lib/main.dart` or `pubspec.yaml`, restore ours from the zip.
 
 ## Before publishing
 
-- Replace `AppConstants.supportEmail` (shown in the Privacy Policy and Terms).
+- The support address lives in one place, `AppConstants.supportEmail`
+  (sujinksureshofcl@gmail.com), and is shown in the Privacy Policy, Terms and
+  About pages.
 - Have a lawyer review `lib/core/constants/legal_content.dart`, publish the same
   Privacy Policy at a public URL (Play Console asks for a link), and re-read it
   whenever a feature that touches data or permissions is added.
@@ -102,5 +104,7 @@ passed with `--dart-define=MEALDB_API_KEY=...`. All access is behind
 
 ## Fonts
 
-Fraunces and DM Sans are bundled in `assets/fonts/` (SIL Open Font License,
-text in `assets/fonts/OFL.txt`).
+Fraunces and DM Sans are bundled in `assets/fonts/` under the SIL Open Font
+License 1.1. Each font's licence, with its own copyright line, is in
+`assets/fonts/OFL-Fraunces.txt` and `assets/fonts/OFL-DMSans.txt`; both are
+shown on the in-app Open-source notices page.

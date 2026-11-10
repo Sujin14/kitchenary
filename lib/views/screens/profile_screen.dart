@@ -5,7 +5,7 @@ import 'package:kitchenary/views/widgets/common/screen_header.dart';
 import 'package:kitchenary/views/widgets/profile/erase_data_tile.dart';
 import 'package:kitchenary/views/widgets/profile/history_tile.dart';
 import 'package:kitchenary/views/widgets/profile/legal_tile.dart';
-import 'package:kitchenary/views/widgets/profile/licences_tile.dart';
+import 'package:kitchenary/views/widgets/profile/open_source_notices_tile.dart';
 import 'package:kitchenary/views/widgets/profile/profile_header.dart';
 import 'package:kitchenary/views/widgets/profile/settings_section.dart';
 import 'package:kitchenary/views/widgets/profile/theme_mode_selector.dart';
@@ -55,7 +55,7 @@ class ProfileScreen extends StatelessWidget {
                         title: 'About Kitchenary',
                         slug: LegalContent.slugAbout,
                       ),
-                      LicencesTile(),
+                      OpenSourceNoticesTile(),
                       VersionTile(),
                     ],
                   ),

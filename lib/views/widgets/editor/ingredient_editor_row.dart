@@ -4,7 +4,7 @@ import 'package:kitchenary/controllers/recipe_editor_controller.dart';
 import 'package:kitchenary/models/draft_line.dart';
 import 'package:provider/provider.dart';
 
-/// One ingredient: amount, name and a remove button.
+// One ingredient: amount, name and a remove button.
 class IngredientEditorRow extends StatelessWidget {
   const IngredientEditorRow({required this.ingredient, super.key});
 

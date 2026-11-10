@@ -4,7 +4,7 @@ import 'package:kitchenary/controllers/home_controller.dart';
 import 'package:kitchenary/views/widgets/common/app_search_field.dart';
 import 'package:provider/provider.dart';
 
-/// The Home search box, wired to [HomeController].
+// The Home search box, wired to [HomeController].
 class HomeSearchBar extends StatelessWidget {
   const HomeSearchBar({super.key});
 

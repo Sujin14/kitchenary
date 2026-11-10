@@ -4,7 +4,7 @@ import 'package:kitchenary/models/draft_line.dart';
 import 'package:kitchenary/models/recipe.dart';
 import 'package:kitchenary/models/recipe_ingredient.dart';
 
-/// The draft behind the "New recipe" / "Edit recipe" form.
+// The draft behind the "New recipe" / "Edit recipe" form.
 class RecipeEditorController extends ChangeNotifier {
   RecipeEditorController({Recipe? existing})
       : _existing = existing,
@@ -100,7 +100,7 @@ class RecipeEditorController extends ChangeNotifier {
     }
   }
 
-  /// What is missing before the recipe can be saved, or null if it is ready.
+  // What is missing before the recipe can be saved, or null if it is ready.
   String? get problem {
     if (_title.trim().isEmpty) return 'Give your recipe a name.';
     if (!_ingredients.any((i) => i.name.trim().isNotEmpty)) {
@@ -112,8 +112,8 @@ class RecipeEditorController extends ChangeNotifier {
     return null;
   }
 
-  /// Builds the recipe. Call only when [problem] is null. Empty rows are
-  /// dropped. [newId] is used when this is a new recipe.
+  // Builds the recipe. Call only when [problem] is null. Empty rows are
+  // dropped. [newId] is used when this is a new recipe.
   Recipe build(String newId) {
     final base = _existing;
     return Recipe(

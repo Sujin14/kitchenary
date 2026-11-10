@@ -11,7 +11,7 @@ import 'package:kitchenary/services/recipe_cache.dart';
 
 import 'helpers/fake_recipe_service.dart';
 
-/// Fake whose random() can fail like a lost connection.
+// Fake whose random() can fail like a lost connection.
 class _RandomFailingService extends FakeRecipeService {
   @override
   Future<Recipe?> random() async {

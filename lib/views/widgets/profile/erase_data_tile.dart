@@ -4,13 +4,14 @@ import 'package:kitchenary/controllers/own_recipes_controller.dart';
 import 'package:kitchenary/controllers/saved_recipes_controller.dart';
 import 'package:kitchenary/controllers/settings_controller.dart';
 import 'package:kitchenary/controllers/shopping_list_controller.dart';
+import 'package:kitchenary/services/photo_cache_service.dart';
 import 'package:kitchenary/services/recipe_cache.dart';
 import 'package:kitchenary/views/widgets/common/app_snack_bar.dart';
 import 'package:kitchenary/views/widgets/common/confirm_dialog.dart';
 import 'package:kitchenary/views/widgets/profile/settings_tile.dart';
 import 'package:provider/provider.dart';
 
-/// "Erase my data": removes everything the app stored on this phone.
+// "Erase my data": removes everything the app stored on this phone.
 class EraseDataTile extends StatelessWidget {
   const EraseDataTile({super.key});
 
@@ -21,13 +22,14 @@ class EraseDataTile extends StatelessWidget {
     final shopping = context.read<ShoppingListController>();
     final cache = context.read<RecipeCache>();
     final settings = context.read<SettingsController>();
+    final photos = context.read<PhotoCacheService>();
 
     final confirmed = await ConfirmDialog.show(
       context,
       title: 'Erase all your data?',
       message: 'Your saved recipes, history, own recipes, shopping list, '
-          'offline recipes and name will be deleted from this phone. This '
-          'cannot be undone.',
+          'offline recipes, cached photos and name will be deleted from this '
+          'phone. This cannot be undone.',
       confirmLabel: 'Erase',
     );
     if (!confirmed) return;
@@ -38,6 +40,7 @@ class EraseDataTile extends StatelessWidget {
     await shopping.clear();
     await cache.clear();
     await settings.reset();
+    await photos.clear();
     if (!context.mounted) return;
     AppSnackBar.show(context, 'Your data was erased');
   }

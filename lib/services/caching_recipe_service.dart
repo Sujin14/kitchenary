@@ -7,11 +7,11 @@ import 'package:kitchenary/services/api_exception.dart';
 import 'package:kitchenary/services/recipe_cache.dart';
 import 'package:kitchenary/services/recipe_service.dart';
 
-/// Wraps another [RecipeService] and keeps what it returns on the device.
-///
-/// Feeds and searches go to the internet first and fall back to the saved
-/// copy when that fails. Full recipes are served from the saved copy first,
-/// because a recipe does not change.
+// Wraps another [RecipeService] and keeps what it returns on the device.
+//
+// Feeds and searches go to the internet first and fall back to the saved
+// copy when that fails. Full recipes are served from the saved copy first,
+// because a recipe does not change.
 class CachingRecipeService implements RecipeService {
   CachingRecipeService(
     this._inner,

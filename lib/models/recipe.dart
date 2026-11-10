@@ -2,10 +2,10 @@ import 'package:kitchenary/models/diet_type.dart';
 import 'package:kitchenary/models/difficulty.dart';
 import 'package:kitchenary/models/recipe_ingredient.dart';
 
-/// A recipe from TheMealDB (or, later, written by the user).
-///
-/// List endpoints return only an id, name and picture; those recipes have
-/// [isSummary] set to true and must be loaded in full before cooking.
+// A recipe from TheMealDB (or, later, written by the user).
+//
+// List endpoints return only an id, name and picture; those recipes have
+// [isSummary] set to true and must be loaded in full before cooking.
 class Recipe {
   const Recipe({
     required this.id,
@@ -23,11 +23,11 @@ class Recipe {
     this.servings = defaultServings,
   });
 
-  /// TheMealDB does not say how many people a recipe feeds; recipes there
-  /// are written for about four.
+  // TheMealDB does not say how many people a recipe feeds; recipes there
+  // are written for about four.
   static const int defaultServings = 4;
 
-  /// Id prefix of recipes the user wrote themselves.
+  // Id prefix of recipes the user wrote themselves.
   static const String ownPrefix = 'own_';
 
   final String id;
@@ -42,20 +42,20 @@ class Recipe {
   final String sourceUrl;
   final bool isSummary;
 
-  /// How many people the listed amounts feed.
+  // How many people the listed amounts feed.
   final int servings;
 
-  /// Set by the user for their own recipes; overrides the inferred diet.
+  // Set by the user for their own recipes; overrides the inferred diet.
   final DietType? customDiet;
 
-  /// True for recipes written by the user (stored only on this device).
+  // True for recipes written by the user (stored only on this device).
   bool get isOwn => id.startsWith(ownPrefix);
 
   bool get hasSteps => steps.isNotEmpty;
   bool get hasVideo => videoUrl.isNotEmpty;
   bool get hasSourceUrl => sourceUrl.isNotEmpty;
 
-  /// "Indian cuisine", or "TheMealDB" when the cuisine is unknown.
+  // "Indian cuisine", or "TheMealDB" when the cuisine is unknown.
   String get sourceLabel => isOwn
       ? 'My recipe'
       : area.isNotEmpty && area.toLowerCase() != 'unknown'
@@ -71,8 +71,8 @@ class Recipe {
     'seafood',
   };
 
-  /// Inferred from the recipe category; recipes in other categories
-  /// (Pasta, Dessert, Side...) are reported as [DietType.unknown].
+  // Inferred from the recipe category; recipes in other categories
+  // (Pasta, Dessert, Side...) are reported as [DietType.unknown].
   DietType get diet {
     final custom = customDiet;
     if (custom != null) return custom;
@@ -83,8 +83,8 @@ class Recipe {
     return DietType.unknown;
   }
 
-  /// Rough estimate from ingredient and step counts (the API has no times).
-  /// Only meaningful for full recipes.
+  // Rough estimate from ingredient and step counts (the API has no times).
+  // Only meaningful for full recipes.
   Difficulty get difficulty {
     final n = ingredients.length;
     final s = steps.length;
@@ -93,7 +93,7 @@ class Recipe {
     return Difficulty.hard;
   }
 
-  /// Parses a meal from a list endpoint (`filter.php`): id, name, picture.
+  // Parses a meal from a list endpoint (`filter.php`): id, name, picture.
   factory Recipe.summaryFromMealDb(Map<String, dynamic> json) => Recipe(
         id: (json['idMeal'] as String? ?? '').trim(),
         title: (json['strMeal'] as String? ?? '').trim(),
@@ -101,7 +101,7 @@ class Recipe {
         isSummary: true,
       );
 
-  /// Parses a full meal (`search.php`, `lookup.php`, `random.php`).
+  // Parses a full meal (`search.php`, `lookup.php`, `random.php`).
   factory Recipe.fromMealDb(Map<String, dynamic> json) {
     String text(String key) => (json[key] as String?)?.trim() ?? '';
 
@@ -132,11 +132,11 @@ class Recipe {
     );
   }
 
-  /// Turns the free-text method into short, readable steps.
-  ///
-  /// Handles `STEP 1` headings, `1.` / `2)` prefixes, and long single
-  /// paragraphs (grouped sentence by sentence into chunks of about 220
-  /// characters).
+  // Turns the free-text method into short, readable steps.
+  //
+  // Handles `STEP 1` headings, `1.` / `2)` prefixes, and long single
+  // paragraphs (grouped sentence by sentence into chunks of about 220
+  // characters).
   static List<String> splitInstructions(String text) {
     if (text.trim().isEmpty) return const [];
 

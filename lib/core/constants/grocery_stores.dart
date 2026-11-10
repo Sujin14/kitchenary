@@ -1,12 +1,11 @@
 import 'package:kitchenary/models/grocery_store.dart';
 
-/// The grocery stores offered on the shopping list.
-///
-/// These are ordinary web addresses: Android opens the store's app when it is
-/// installed (when the store has registered the address) and the website
-/// otherwise. The search address formats are NOT confirmed with the stores
-/// and can change without notice, so check each one on a phone before every
-/// release. They live here so they can be fixed in one place.
+// The grocery stores offered on the shopping list.
+// These are ordinary web addresses: Android opens the store's app when it is
+// installed (when the store has registered the address) and the website
+// otherwise. The search address formats are NOT confirmed with the stores
+// and can change without notice, so check each one on a phone before every
+// release. They live here so they can be fixed in one place.
 abstract final class GroceryStores {
   static const GroceryStore blinkit = GroceryStore(
     id: 'blinkit',

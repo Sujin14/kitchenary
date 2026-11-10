@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-/// Typography. Headings use Fraunces, body text uses DM Sans (both bundled,
-/// SIL Open Font License). Colours are NOT set here; the theme applies them
-/// from the active palette. Sizes use `.sp` so text scales with the screen;
-/// call only after `ScreenUtilInit` has run.
+// Typography. Headings use Fraunces, body text uses DM Sans (both bundled,
+// SIL Open Font License). Colours are NOT set here; the theme applies them
+// from the active palette. Sizes use `.sp` so text scales with the screen;
+// call only after `ScreenUtilInit` has run.
 abstract final class AppTextStyles {
   static const String headingFamily = 'Fraunces';
   static const String bodyFamily = 'DMSans';
@@ -42,7 +42,7 @@ abstract final class AppTextStyles {
         height: height,
       );
 
-  /// Cooking mode sizes: large enough to read from about 3 feet away.
+  // Cooking mode sizes: large enough to read from about 3 feet away.
   static double get cookingStepSize => 32.sp;
   static double get cookingHeadingSize => 36.sp;
   static double get cookingIngredientSize => 26.sp;

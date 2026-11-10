@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:kitchenary/core/extensions/context_extensions.dart';
 
-/// Row of dots showing the current page; the active one is stretched.
+// Row of dots showing the current page; the active one is stretched.
 class PageDots extends StatelessWidget {
   const PageDots({required this.count, required this.index, super.key});
 

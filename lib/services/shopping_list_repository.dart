@@ -3,14 +3,14 @@ import 'dart:convert';
 import 'package:kitchenary/models/shopping_item.dart';
 import 'package:kitchenary/services/local_store.dart';
 
-/// Saves the shopping list as JSON on the device.
+// Saves the shopping list as JSON on the device.
 class ShoppingListRepository {
   const ShoppingListRepository(this._store, this._key);
 
   final LocalStore _store;
   final String _key;
 
-  /// Returns the stored items, or an empty list if nothing valid is stored.
+  // Returns the stored items, or an empty list if nothing valid is stored.
   List<ShoppingItem> load() {
     final raw = _store.read(_key);
     if (raw == null || raw.isEmpty) return const [];

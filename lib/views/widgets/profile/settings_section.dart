@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:kitchenary/core/extensions/context_extensions.dart';
 import 'package:kitchenary/views/widgets/common/app_card.dart';
 
-/// A titled card that groups related settings, separated by hairlines.
+// A titled card that groups related settings, separated by hairlines.
 class SettingsSection extends StatelessWidget {
   const SettingsSection({required this.title, required this.children, super.key});
 

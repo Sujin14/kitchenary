@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:kitchenary/core/extensions/context_extensions.dart';
 import 'package:kitchenary/models/onboarding_page.dart';
 
-/// One onboarding page: a big icon, a title and a short message.
+// One onboarding page: a big icon, a title and a short message.
 class OnboardingPageContent extends StatelessWidget {
   const OnboardingPageContent({required this.page, super.key});
 

@@ -7,9 +7,9 @@ import 'package:kitchenary/views/widgets/details/ingredient_row_skeleton.dart';
 import 'package:kitchenary/views/widgets/details/numbered_step_skeleton.dart';
 import 'package:kitchenary/views/widgets/details/servings_stepper.dart';
 
-/// Loading twin of the details body below the title: the Start cooking
-/// button, the Ingredients block (with its servings row) and the Method
-/// block, with the same headings, gaps and rows.
+// Loading twin of the details body below the title: the Start cooking
+// button, the Ingredients block (with its servings row) and the Method
+// block, with the same headings, gaps and rows.
 class RecipeDetailsSkeleton extends StatelessWidget {
   const RecipeDetailsSkeleton({super.key});
 

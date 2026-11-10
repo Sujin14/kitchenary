@@ -4,7 +4,7 @@ import 'package:kitchenary/core/constants/grocery_stores.dart';
 import 'package:kitchenary/core/extensions/context_extensions.dart';
 import 'package:kitchenary/models/grocery_store.dart';
 
-/// Asks which grocery store to open. Calls [onPicked] after the sheet closes.
+// Asks which grocery store to open. Calls [onPicked] after the sheet closes.
 Future<void> showStorePicker(
   BuildContext context, {
   required String title,
@@ -18,7 +18,7 @@ Future<void> showStorePicker(
   if (store != null) onPicked(store);
 }
 
-/// The list of grocery stores, one tap each.
+// The list of grocery stores, one tap each.
 class StorePickerSheet extends StatelessWidget {
   const StorePickerSheet({required this.title, super.key});
 

@@ -1,15 +1,15 @@
-/// How a browse chip is turned into an API request.
+// How a browse chip is turned into an API request.
 enum FilterKind {
-  /// TheMealDB category, e.g. `Chicken`, `Vegetarian`.
+  // TheMealDB category, e.g. `Chicken`, `Vegetarian`.
   category,
 
-  /// TheMealDB cuisine (area), e.g. `Indian`.
+  // TheMealDB cuisine (area), e.g. `Indian`.
   area,
 
-  /// Main ingredient, e.g. `Potatoes`.
+  // Main ingredient, e.g. `Potatoes`.
   ingredient,
 
-  /// Free-text search of recipe names.
+  // Free-text search of recipe names.
   search,
 }
 
@@ -20,6 +20,6 @@ class RecipeFilter {
   final FilterKind kind;
   final String value;
 
-  /// Text shown on the chip.
+  // Text shown on the chip.
   final String label;
 }

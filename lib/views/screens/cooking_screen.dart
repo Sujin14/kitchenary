@@ -4,7 +4,7 @@ import 'package:kitchenary/models/cooking_session.dart';
 import 'package:kitchenary/views/widgets/cooking/cooking_view.dart';
 import 'package:provider/provider.dart';
 
-/// Full-screen, step-by-step cooking mode.
+// Full-screen, step-by-step cooking mode.
 class CookingScreen extends StatelessWidget {
   const CookingScreen({required this.session, super.key});
 

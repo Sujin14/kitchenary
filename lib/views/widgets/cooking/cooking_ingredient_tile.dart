@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:kitchenary/core/extensions/context_extensions.dart';
 import 'package:kitchenary/core/theme/app_text_styles.dart';
 
-/// One ingredient to gather: tap to tick it off.
+// One ingredient to gather: tap to tick it off.
 class CookingIngredientTile extends StatelessWidget {
   const CookingIngredientTile({
     required this.text,

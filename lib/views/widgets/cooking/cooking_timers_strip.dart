@@ -5,7 +5,7 @@ import 'package:kitchenary/core/extensions/context_extensions.dart';
 import 'package:kitchenary/views/widgets/cooking/cooking_timer_chip.dart';
 import 'package:provider/provider.dart';
 
-/// Row of active timers under the cooking-mode top bar. Hidden when empty.
+// Row of active timers under the cooking-mode top bar. Hidden when empty.
 class CookingTimersStrip extends StatelessWidget {
   const CookingTimersStrip({super.key});
 

@@ -6,7 +6,7 @@ import 'package:kitchenary/core/utils/duration_format.dart';
 import 'package:kitchenary/core/utils/step_duration_parser.dart';
 import 'package:provider/provider.dart';
 
-/// Opens the quick-timer sheet.
+// Opens the quick-timer sheet.
 Future<void> showAddTimerSheet(
   BuildContext context,
   String recipeTitle, {
@@ -24,7 +24,7 @@ Future<void> showAddTimerSheet(
   );
 }
 
-/// Preset times for a timer that is not tied to a step.
+// Preset times for a timer that is not tied to a step.
 class AddTimerSheet extends StatelessWidget {
   const AddTimerSheet({
     required this.recipeTitle,
@@ -35,7 +35,7 @@ class AddTimerSheet extends StatelessWidget {
 
   final String recipeTitle;
 
-  /// When opened on a step, the times mentioned in it are offered first.
+  // When opened on a step, the times mentioned in it are offered first.
   final int? stepNumber;
   final String? stepText;
 

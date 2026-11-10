@@ -5,7 +5,7 @@ import 'package:kitchenary/views/widgets/common/section_title.dart';
 import 'package:kitchenary/views/widgets/editor/step_editor_row.dart';
 import 'package:provider/provider.dart';
 
-/// The list of method steps with an "Add step" button.
+// The list of method steps with an "Add step" button.
 class StepEditor extends StatelessWidget {
   const StepEditor({super.key});
 

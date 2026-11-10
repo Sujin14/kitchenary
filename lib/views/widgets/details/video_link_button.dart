@@ -6,7 +6,7 @@ import 'package:kitchenary/views/widgets/common/app_snack_bar.dart';
 import 'package:kitchenary/views/widgets/common/secondary_button.dart';
 import 'package:provider/provider.dart';
 
-/// Opens the recipe's video walkthrough, when there is one.
+// Opens the recipe's video walkthrough, when there is one.
 class VideoLinkButton extends StatelessWidget {
   const VideoLinkButton({required this.recipe, super.key});
 

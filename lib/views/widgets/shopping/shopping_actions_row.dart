@@ -7,7 +7,7 @@ import 'package:kitchenary/views/widgets/common/app_snack_bar.dart';
 import 'package:kitchenary/views/widgets/common/secondary_button.dart';
 import 'package:provider/provider.dart';
 
-/// Copy the list, order it step by step, or clear what is ticked.
+// Copy the list, order it step by step, or clear what is ticked.
 class ShoppingActionsRow extends StatelessWidget {
   const ShoppingActionsRow({super.key});
 

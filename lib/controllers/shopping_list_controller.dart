@@ -4,7 +4,7 @@ import 'package:kitchenary/models/recipe_ingredient.dart';
 import 'package:kitchenary/models/shopping_item.dart';
 import 'package:kitchenary/services/shopping_list_repository.dart';
 
-/// How many ingredients were put on the list and how many were already there.
+// How many ingredients were put on the list and how many were already there.
 class AddToListResult {
   const AddToListResult({required this.added, required this.skipped});
 
@@ -12,8 +12,8 @@ class AddToListResult {
   final int skipped;
 }
 
-/// The shopping list: items from recipes or typed in by hand. Stored on the
-/// device. Unticked items come first, ticked ones sink to the bottom.
+// The shopping list: items from recipes or typed in by hand. Stored on the
+// device. Unticked items come first, ticked ones sink to the bottom.
 class ShoppingListController extends ChangeNotifier {
   ShoppingListController(this._repository) : _items = _repository.load();
 
@@ -21,7 +21,7 @@ class ShoppingListController extends ChangeNotifier {
   List<ShoppingItem> _items;
   int _idCounter = 0;
 
-  /// Unticked items first, then ticked ones; order within each is kept.
+  // Unticked items first, then ticked ones; order within each is kept.
   List<ShoppingItem> get items => [
         ..._items.where((i) => !i.checked),
         ..._items.where((i) => i.checked),
@@ -33,8 +33,8 @@ class ShoppingListController extends ChangeNotifier {
   int get remainingCount => count - checkedCount;
   bool get hasChecked => checkedCount > 0;
 
-  /// Adds [ingredients] (amounts already scaled). Ingredients whose name is
-  /// already on the list are skipped.
+  // Adds [ingredients] (amounts already scaled). Ingredients whose name is
+  // already on the list are skipped.
   Future<AddToListResult> addIngredients(
     Iterable<RecipeIngredient> ingredients, {
     required String recipeTitle,
@@ -65,8 +65,8 @@ class ShoppingListController extends ChangeNotifier {
     return AddToListResult(added: fresh.length, skipped: skipped);
   }
 
-  /// Adds one item typed in by hand. Returns false when it is empty or
-  /// already on the list.
+  // Adds one item typed in by hand. Returns false when it is empty or
+  // already on the list.
   Future<bool> addCustom(String name) async {
     final trimmed = name.trim();
     if (trimmed.isEmpty) return false;
@@ -87,7 +87,7 @@ class ShoppingListController extends ChangeNotifier {
     await _repository.save(_items);
   }
 
-  /// Ticks or unticks an item (no change if it is already in that state).
+  // Ticks or unticks an item (no change if it is already in that state).
   Future<void> setChecked(String id, {required bool checked}) async {
     final index = _items.indexWhere((i) => i.id == id);
     if (index < 0 || _items[index].checked == checked) return;
@@ -117,7 +117,7 @@ class ShoppingListController extends ChangeNotifier {
     await _repository.clear();
   }
 
-  /// Plain text of what is still to buy, for sharing or pasting.
+  // Plain text of what is still to buy, for sharing or pasting.
   String asText() {
     final lines = [
       for (final item in _items.where((i) => !i.checked))

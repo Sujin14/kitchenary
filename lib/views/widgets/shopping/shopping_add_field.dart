@@ -4,7 +4,7 @@ import 'package:kitchenary/controllers/shopping_list_controller.dart';
 import 'package:kitchenary/views/widgets/common/app_snack_bar.dart';
 import 'package:provider/provider.dart';
 
-/// Text box for adding an item by hand.
+// Text box for adding an item by hand.
 class ShoppingAddField extends StatefulWidget {
   const ShoppingAddField({super.key});
 

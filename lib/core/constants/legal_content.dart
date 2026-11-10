@@ -1,18 +1,16 @@
 import 'package:kitchenary/core/constants/app_constants.dart';
 import 'package:kitchenary/models/legal_document.dart';
 
-/// The text of the in-app legal pages.
-///
-/// This is a starting draft written for how Kitchenary works today. Before
-/// publishing on the Play Store: replace [AppConstants.supportEmail], have a
-/// lawyer review it, host the same text at a public URL (Play Console asks
-/// for a privacy policy link), and re-read it whenever a feature changes.
+// The text of the in-app legal pages.
+// Re-read this whenever a feature that touches data or permissions changes,
+// update [_updated], and publish the same Privacy Policy at a public URL
+// (Play Console asks for a link).
 abstract final class LegalContent {
   static const String slugPrivacy = 'privacy';
   static const String slugTerms = 'terms';
   static const String slugAbout = 'about';
 
-  static const String _updated = '4 October 2026';
+  static const String _updated = '9 November 2026';
 
   static LegalDocument? bySlug(String slug) => switch (slug) {
         slugPrivacy => privacy,
@@ -26,65 +24,195 @@ abstract final class LegalContent {
     title: 'Privacy Policy',
     updated: _updated,
     intro:
-        'Kitchenary is a free cooking app. We built it to keep your data on '
-        'your phone, not on our servers. This page explains what that means.',
+        'Kitchenary is a free cooking app: it needs no account, shows no ads, '
+        'and has no analytics or tracking, so we do not collect or sell your '
+        'personal information. Everything you create in the app stays on '
+        'your phone.',
     sections: [
-      LegalSection('What we collect', [
-        'Kitchenary has no accounts and no sign-up. We do not run a server '
-            'that stores information about you, and we do not collect your '
-            'name, email address, phone number or location.',
-        'Everything you create in the app stays on your device: the name '
-            'you enter on the Profile screen, the recipes you save, the '
-            'recipes you recently viewed, the recipes you write yourself, your '
-            'shopping list and your theme choice.',
+      LegalSection('Summary', [
+        LegalBulletList([
+          LegalBullet('You do not sign up or log in.'),
+          LegalBullet(
+            'The recipes, lists and settings you create are stored only on '
+            'your device.',
+          ),
+          LegalBullet(
+            'The app contacts one outside service, TheMealDB, to load '
+            'recipes and photos.',
+          ),
+          LegalBullet(
+            'No advertising, analytics or crash-reporting services are built '
+            'into the app.',
+          ),
+          LegalBullet('You can erase all your data inside the app at any time.'),
+        ]),
       ]),
-      LegalSection('Data on your device', [
-        'This data is stored only in the app\'s private storage on your '
-            'phone. We cannot see it. Uninstalling the app, or using '
-            '"Erase my data" on the Profile screen, deletes it.',
+      LegalSection('Information stored on your device', [
+        LegalParagraph(
+          'Kitchenary saves the following on your phone so the app works and '
+          'remembers your choices. We never receive a copy of it.',
+        ),
+        LegalBulletList([
+          LegalBullet(
+            'Recipes you save, recipes you write yourself, and your recently '
+            'viewed recipes.',
+          ),
+          LegalBullet('Your shopping list, including items you add by hand.'),
+          LegalBullet(
+            'The first name or nickname you may enter on the Profile screen, '
+            'and your theme choice (light, dark or system).',
+          ),
+          LegalBullet('Active cooking timers and their end times.'),
+          LegalBullet(
+            'A cache of recipes and photos you have viewed, so they can open '
+            'without internet.',
+          ),
+        ]),
+        LegalParagraph(
+          'This data lives in the app\'s private storage. Other apps cannot '
+          'read it, and it is removed when you erase your data or uninstall '
+          'the app.',
+        ),
       ]),
-      LegalSection('Recipes and photos from other services', [
-        'Recipes and recipe photos are loaded from TheMealDB '
-            '(www.themealdb.com). When the app loads them, TheMealDB and its '
-            'hosting providers receive technical information that any website '
-            'receives, such as your IP address and the words you searched '
-            'for. Their own privacy policy applies to that information.',
-        'Some recipes link to a video on YouTube or to the original recipe '
-            'page. These open in your browser or in another app, and that '
-            'service\'s privacy policy applies there.',
-        'The shopping list can open grocery services (such as Blinkit, '
-            'Zepto, Swiggy Instamart and BigBasket) in their app or website. '
-            'When you choose this for an item, the name of that item is sent '
-            'to the service you picked, and its privacy policy applies. '
-            'Kitchenary does not sign you in to them or place orders.',
+      LegalSection('Third-party services', [
+        LegalBulletList([
+          LegalBullet(
+            'Recipes, ingredients and photos come from TheMealDB '
+            '(themealdb.com). When you browse, search or open a recipe, the '
+            'app sends that request, such as your search words or a category, '
+            'directly from your phone to TheMealDB. Like any internet '
+            'service, TheMealDB can see your IP address and device type. We '
+            'do not send them your name, saved recipes, shopping list or any '
+            'other data from the app. Their handling of data is described in '
+            'their own terms and privacy information.',
+            label: 'TheMealDB',
+          ),
+          LegalBullet(
+            'When you choose to order ingredients, Kitchenary opens a search '
+            'for an item in a grocery app or website you pick (Blinkit, '
+            'Zepto, Swiggy Instamart or BigBasket). Only the ingredient name '
+            'is placed in the link. Once that app or site opens, its own '
+            'privacy policy applies, and we do not receive anything from it. '
+            'Kitchenary never places an order or handles payment.',
+            label: 'Grocery apps',
+          ),
+          LegalBullet(
+            'If you copy your shopping list, it goes to your phone\'s '
+            'clipboard only when you tap the button. We do not read the '
+            'clipboard at any other time.',
+            label: 'Copy and share',
+          ),
+        ]),
       ]),
-      LegalSection('Analytics, ads and tracking', [
-        'Kitchenary contains no advertising, no analytics tools and no '
-            'tracking of any kind.',
+      LegalSection('Permissions the app uses', [
+        LegalParagraph(
+          'Kitchenary asks for only what its features need. None of these '
+          'permissions is used to collect data about you.',
+        ),
+        LegalBulletList([
+          LegalBullet(
+            'load recipes and photos from TheMealDB.',
+            label: 'Internet',
+          ),
+          LegalBullet(
+            'tell you when a cooking timer finishes.',
+            label: 'Notifications',
+          ),
+          LegalBullet(
+            'ring the timer at the right second, even if the screen is off. '
+            'If you deny it, timers still work but may be a little late.',
+            label: 'Alarms and reminders (exact alarms)',
+          ),
+          LegalBullet(
+            'vibrate when a timer finishes.',
+            label: 'Vibrate',
+          ),
+          LegalBullet(
+            'restore scheduled timers if your phone restarts.',
+            label: 'Run at start-up',
+          ),
+          LegalBullet(
+            'stop the screen from sleeping while you follow steps in cooking '
+            'mode.',
+            label: 'Keep screen on',
+          ),
+        ]),
+        LegalParagraph(
+          'You can turn any of these off in your phone\'s system settings. '
+          'The app keeps working, but the related feature may not.',
+        ),
       ]),
-      LegalSection('Permissions', [
-        'The app asks only for what it needs: internet access to load '
-            'recipes, and, if you use cooking timers, permission to show a '
-            'notification when a timer finishes. Timers and their '
-            'notifications are scheduled on your device only.',
+      LegalSection('How information is used', [
+        LegalParagraph(
+          'The data stored on your device is used only to run the features '
+          'you see: showing your saved recipes, keeping your shopping list, '
+          'greeting you by name, remembering your theme, and working '
+          'offline. We do not:',
+        ),
+        LegalBulletList([
+          LegalBullet('sell, rent or share your information with anyone;'),
+          LegalBullet('show advertising or build an advertising profile;'),
+          LegalBullet('track you across apps or websites;'),
+          LegalBullet(
+            'collect your location, contacts, photos, microphone or camera '
+            'data;',
+          ),
+          LegalBullet(
+            'create accounts or collect your email address or phone number.',
+          ),
+        ]),
       ]),
-      LegalSection('Children', [
-        'Kitchenary is meant for a general audience and does not knowingly '
-            'collect any information from anyone, including children. Since '
-            'nothing is collected, there is nothing to share or sell.',
+      LegalSection('Keeping and deleting your data', [
+        LegalParagraph(
+          'Your data stays on your phone until you remove it. You can delete '
+          'a single saved recipe, your own recipe, a shopping item or your '
+          'history from the screens where they appear.',
+        ),
+        LegalParagraph(
+          'To remove everything at once, open Profile and choose the '
+          'erase-data option, which clears saved recipes, your own recipes, '
+          'history, shopping list, your name, settings, the offline recipe '
+          'cache and cached photos. Uninstalling the app also removes all '
+          'of it.',
+        ),
+        LegalParagraph(
+          'Because we hold no copy of your data on any server, there is '
+          'nothing for us to export or delete on our side.',
+        ),
       ]),
-      LegalSection('Your choices', [
-        'You can erase everything the app has stored at any time from '
-            'Profile, then "Erase my data". You can also clear your history '
-            'from the Recently viewed screen, or delete individual saved '
-            'recipes and your own recipes.',
-      ]),
-      LegalSection('Changes to this policy', [
-        'If the app changes in a way that affects your privacy, we will '
-            'update this page and the date at the top.',
-      ]),
-      LegalSection('Contact', [
-        'Questions about privacy? Write to ${AppConstants.supportEmail}.',
+      LegalSection('Children, security, changes and contact', [
+        LegalBulletList([
+          LegalBullet(
+            'Kitchenary is a general cooking app and is not directed at '
+            'children. We do not knowingly collect personal information from '
+            'anyone, including children, because the app collects none.',
+            label: 'Children',
+          ),
+          LegalBullet(
+            'Your data is kept in the app\'s private storage on your device, '
+            'and the app talks to TheMealDB over an encrypted (HTTPS) '
+            'connection. Keep your phone locked and updated to protect what '
+            'is stored on it.',
+            label: 'Security',
+          ),
+          LegalBullet(
+            'Kitchenary is made for users in India. We handle information in '
+            'line with applicable Indian law, including the Digital Personal '
+            'Data Protection Act, 2023.',
+            label: 'Where this applies',
+          ),
+          LegalBullet(
+            'If we add a feature that changes how information is handled, we '
+            'will update this page and the date at the top before the change '
+            'takes effect, and the in-app Privacy screen will show the new '
+            'version.',
+            label: 'Changes',
+          ),
+          LegalBullet(
+            'Questions about this policy: ${AppConstants.supportEmail}.',
+            label: 'Contact',
+          ),
+        ]),
       ]),
     ],
   );
@@ -98,69 +226,95 @@ abstract final class LegalContent {
         'please do not use the app.',
     sections: [
       LegalSection('What Kitchenary is', [
-        'Kitchenary is a free app that helps you find recipes, cook them '
-            'step by step and keep your own recipe collection. It is provided '
-            'for personal, non-commercial use.',
+        LegalParagraph(
+          'Kitchenary is a free app that helps you find recipes, cook them '
+          'step by step and keep your own recipe collection. It is provided '
+          'for personal, non-commercial use.',
+        ),
       ]),
       LegalSection('Cooking safety and allergies', [
-        'Cooking involves heat, sharp tools and raw food. You are '
-            'responsible for cooking safely: wash your hands, cook meat '
-            'thoroughly, store food properly and never leave a hot stove '
-            'unattended.',
-        'Recipes may contain ingredients that cause allergic reactions. '
-            'The ingredient lists, the veg / non-veg marks and the difficulty '
-            'labels in the app are provided for convenience and may be '
-            'incomplete or wrong. Always check ingredients and labels '
-            'yourself, especially if you or the people you cook for have '
-            'allergies or dietary needs. Kitchenary gives no medical or '
-            'nutritional advice.',
+        LegalParagraph(
+          'Cooking involves heat, sharp tools and raw food. You are '
+          'responsible for cooking safely: wash your hands, cook meat '
+          'thoroughly, store food properly and never leave a hot stove '
+          'unattended.',
+        ),
+        LegalParagraph(
+          'Recipes may contain ingredients that cause allergic reactions. '
+          'The ingredient lists, the veg / non-veg marks and the difficulty '
+          'labels in the app are provided for convenience and may be '
+          'incomplete or wrong. Always check ingredients and labels '
+          'yourself, especially if you or the people you cook for have '
+          'allergies or dietary needs. Kitchenary gives no medical or '
+          'nutritional advice.',
+        ),
       ]),
       LegalSection('Recipe content from others', [
-        'Recipes and photos come from TheMealDB and are provided as they '
-            'are. We do not check them and do not promise they are accurate, '
-            'complete or that they will turn out well. Their copyright '
-            'belongs to their respective owners.',
+        LegalParagraph(
+          'Recipes and photos come from TheMealDB and are provided as they '
+          'are. We do not check them and do not promise they are accurate, '
+          'complete or that they will turn out well. Their copyright '
+          'belongs to their respective owners.',
+        ),
       ]),
       LegalSection('Your own recipes', [
-        'Recipes you write stay on your device and remain yours. Please '
-            'only enter content you have the right to use.',
+        LegalParagraph(
+          'Recipes you write stay on your device and remain yours. Please '
+          'only enter content you have the right to use.',
+        ),
       ]),
       LegalSection('Links to other services', [
-        'The app may link to other websites and apps, such as YouTube or '
-            'grocery services. We do not control them and are not '
-            'responsible for them or for anything you buy through them.',
+        LegalParagraph(
+          'The app may link to other websites and apps, such as YouTube or '
+          'grocery services. We do not control them and are not '
+          'responsible for them or for anything you buy through them.',
+        ),
       ]),
       LegalSection('Using the app fairly', [
-        'Do not misuse the app: do not try to break it, copy its code or '
-            'design, overload the services it depends on, or use it for '
-            'anything unlawful.',
+        LegalParagraph(
+          'Do not misuse the app: do not try to break it, copy its code or '
+          'design, overload the services it depends on, or use it for '
+          'anything unlawful.',
+        ),
       ]),
       LegalSection('Ownership', [
-        'The Kitchenary name, logo, design and code belong to the '
-            'developer. Open-source components are used under their own '
-            'licences (see About and the open-source licences screen).',
+        LegalParagraph(
+          'The Kitchenary name, logo, design and code belong to the '
+          'developer. Open-source components are used under their own '
+          'licences, listed under Open-source notices in Profile > About.',
+        ),
       ]),
       LegalSection('No warranty', [
-        'The app is provided "as is" and "as available", without promises '
-            'of any kind. Recipe services may be slow, change or stop at any '
-            'time, and the app may contain mistakes.',
+        LegalParagraph(
+          'The app is provided "as is" and "as available", without promises '
+          'of any kind. Recipe services may be slow, change or stop at any '
+          'time, and the app may contain mistakes.',
+        ),
       ]),
       LegalSection('Limit of liability', [
-        'To the extent the law allows, the developer is not liable for any '
-            'loss, injury, illness or damage that results from using the app '
-            'or from cooking or eating food prepared with it.',
+        LegalParagraph(
+          'To the extent the law allows, the developer is not liable for any '
+          'loss, injury, illness or damage that results from using the app '
+          'or from cooking or eating food prepared with it.',
+        ),
       ]),
       LegalSection('Changes', [
-        'We may change the app or these terms. The date at the top shows '
-            'when they were last updated. Continuing to use the app after a '
-            'change means you accept the new terms.',
+        LegalParagraph(
+          'We may change the app or these terms. The date at the top shows '
+          'when they were last updated. Continuing to use the app after a '
+          'change means you accept the new terms.',
+        ),
       ]),
       LegalSection('Governing law', [
-        'These terms are governed by the laws of India. Disputes are '
-            'subject to the courts of India.',
+        LegalParagraph(
+          'These terms are governed by the laws of India. Disputes are '
+          'subject to the courts of India.',
+        ),
       ]),
       LegalSection('Contact', [
-        'Questions about these terms? Write to ${AppConstants.supportEmail}.',
+        LegalParagraph(
+          'Questions about these terms? Write to ${AppConstants.supportEmail}.',
+        ),
       ]),
     ],
   );
@@ -173,18 +327,23 @@ abstract final class LegalContent {
         'Kitchenary is a free cooking companion: learn a dish, shop for it, '
         'then cook it step by step.',
     sections: [
-      LegalSection('Version', [AppConstants.appVersion]),
+      LegalSection('Version', [LegalParagraph(AppConstants.appVersion)]),
       LegalSection('Credits', [
-        'Recipes and photos: TheMealDB (www.themealdb.com), a free, '
-            'community-built recipe database.',
-        'Fonts: Fraunces and DM Sans, used under the SIL Open Font '
-            'License 1.1.',
-        'Built with Flutter and open-source packages. Their licences are '
-            'listed under "Open-source licences" on the Profile screen.',
+        LegalParagraph(
+          'Recipes and photos: TheMealDB (www.themealdb.com), a free, '
+          'community-built recipe database.',
+        ),
+        LegalParagraph(
+          'Fonts: Fraunces and DM Sans, used under the SIL Open Font '
+          'License 1.1.',
+        ),
+        LegalParagraph('Built with Flutter.'),
       ]),
       LegalSection('Feedback', [
-        'Found a mistake or have an idea? Write to '
-            '${AppConstants.supportEmail}.',
+        LegalParagraph(
+          'Found a mistake or have an idea? Write to '
+          '${AppConstants.supportEmail}.',
+        ),
       ]),
     ],
   );

@@ -4,7 +4,7 @@ import 'package:kitchenary/core/constants/app_constants.dart';
 import 'package:kitchenary/core/extensions/context_extensions.dart';
 import 'package:kitchenary/views/widgets/home/random_recipe_button.dart';
 
-/// App name, tagline and the random-recipe button.
+// App name, tagline and the random-recipe button.
 class HomeHeader extends StatelessWidget {
   const HomeHeader({super.key});
 

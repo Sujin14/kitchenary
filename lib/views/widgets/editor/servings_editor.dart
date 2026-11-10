@@ -5,8 +5,8 @@ import 'package:kitchenary/core/extensions/context_extensions.dart';
 import 'package:kitchenary/views/widgets/common/count_stepper.dart';
 import 'package:provider/provider.dart';
 
-/// How many people the amounts in this recipe feed. The servings stepper on
-/// the details screen scales from this number.
+// How many people the amounts in this recipe feed. The servings stepper on
+// the details screen scales from this number.
 class ServingsEditor extends StatelessWidget {
   const ServingsEditor({super.key});
 

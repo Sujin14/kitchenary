@@ -4,7 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:kitchenary/core/extensions/context_extensions.dart';
 import 'package:kitchenary/views/widgets/common/image_skeleton.dart';
 
-/// A network image with a shimmer placeholder and an error fallback.
+// A network image with a shimmer placeholder and an error fallback.
 class RecipeImage extends StatelessWidget {
   const RecipeImage({
     required this.url,

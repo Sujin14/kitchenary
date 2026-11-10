@@ -2,7 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:kitchenary/models/recipe.dart';
 import 'package:kitchenary/services/recipe_list_repository.dart';
 
-/// Recipes the user has saved (hearted). Newest first, stored on the device.
+// Recipes the user has saved (hearted). Newest first, stored on the device.
 class SavedRecipesController extends ChangeNotifier {
   SavedRecipesController(this._repository) : _recipes = _repository.load();
 
@@ -15,8 +15,8 @@ class SavedRecipesController extends ChangeNotifier {
 
   bool isSaved(String id) => _recipes.any((r) => r.id == id);
 
-  /// Saves [recipe], or removes it if it is already saved.
-  /// Returns true when the recipe is now saved.
+  // Saves [recipe], or removes it if it is already saved.
+  // Returns true when the recipe is now saved.
   Future<bool> toggle(Recipe recipe) async {
     final nowSaved = !isSaved(recipe.id);
     if (nowSaved) {
@@ -29,8 +29,8 @@ class SavedRecipesController extends ChangeNotifier {
     return nowSaved;
   }
 
-  /// Replaces a saved summary with the full recipe once it has been loaded,
-  /// so it can be opened again later with everything in it.
+  // Replaces a saved summary with the full recipe once it has been loaded,
+  // so it can be opened again later with everything in it.
   Future<void> refresh(Recipe full) async {
     if (full.isSummary || !isSaved(full.id)) return;
     _recipes = [for (final r in _recipes) r.id == full.id ? full : r];

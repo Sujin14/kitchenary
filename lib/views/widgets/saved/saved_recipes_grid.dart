@@ -5,7 +5,7 @@ import 'package:kitchenary/views/widgets/home/recipe_grid_layout.dart';
 import 'package:kitchenary/views/widgets/recipe/recipe_card.dart';
 import 'package:provider/provider.dart';
 
-/// The user's saved recipes as a grid, or a friendly empty state.
+// The user's saved recipes as a grid, or a friendly empty state.
 class SavedRecipesGrid extends StatelessWidget {
   const SavedRecipesGrid({super.key});
 

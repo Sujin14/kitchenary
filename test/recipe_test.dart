@@ -11,7 +11,7 @@ void main() {
     'strCategory': 'Chicken',
     'strArea': 'Japanese',
     'strInstructions': 'Preheat oven.\r\n\r\nMix the sauce.\r\nBake for 30 minutes.',
-    'strMealThumb': 'https://example.com/a.jpg',
+    'strMealThumb': 'https://images.test/a.jpg',
     'strTags': 'Meat, Casserole',
     'strYoutube': 'https://www.youtube.com/watch?v=4aZr5hZXP_s',
     'strIngredient1': 'soy sauce',

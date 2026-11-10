@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:kitchenary/core/extensions/context_extensions.dart';
 import 'package:kitchenary/views/widgets/common/secondary_button.dart';
 
-/// Error message with a retry button.
+// Error message with a retry button.
 class ErrorState extends StatelessWidget {
   const ErrorState({required this.message, required this.onRetry, super.key});
 

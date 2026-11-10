@@ -4,7 +4,7 @@ import 'package:kitchenary/views/widgets/common/app_snack_bar.dart';
 import 'package:kitchenary/views/widgets/common/confirm_dialog.dart';
 import 'package:provider/provider.dart';
 
-/// App-bar action that clears the viewing history (after confirming).
+// App-bar action that clears the viewing history (after confirming).
 class ClearHistoryButton extends StatelessWidget {
   const ClearHistoryButton({super.key});
 

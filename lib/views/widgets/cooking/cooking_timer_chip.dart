@@ -6,7 +6,7 @@ import 'package:kitchenary/core/utils/duration_format.dart';
 import 'package:kitchenary/models/cooking_timer.dart';
 import 'package:provider/provider.dart';
 
-/// One running, paused or finished timer in the cooking-mode strip.
+// One running, paused or finished timer in the cooking-mode strip.
 class CookingTimerChip extends StatelessWidget {
   const CookingTimerChip({
     required this.timer,

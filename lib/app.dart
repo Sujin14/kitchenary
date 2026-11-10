@@ -14,12 +14,14 @@ import 'package:kitchenary/core/constants/storage_keys.dart';
 import 'package:kitchenary/core/navigation/app_router.dart';
 import 'package:kitchenary/core/theme/app_theme.dart';
 import 'package:kitchenary/services/alarm_sound_service.dart';
+import 'package:kitchenary/services/cache_manager_photo_cache_service.dart';
 import 'package:kitchenary/services/caching_recipe_service.dart';
 import 'package:kitchenary/services/clipboard_service.dart';
 import 'package:kitchenary/services/local_notification_service.dart';
 import 'package:kitchenary/services/local_store.dart';
 import 'package:kitchenary/services/mealdb_recipe_service.dart';
 import 'package:kitchenary/services/notification_service.dart';
+import 'package:kitchenary/services/photo_cache_service.dart';
 import 'package:kitchenary/services/platform_alarm_sound_service.dart';
 import 'package:kitchenary/services/recipe_cache.dart';
 import 'package:kitchenary/services/recipe_list_repository.dart';
@@ -32,19 +34,19 @@ import 'package:kitchenary/services/url_launcher_service.dart';
 import 'package:kitchenary/services/wakelock_screen_awake_service.dart';
 import 'package:provider/provider.dart';
 
-/// Root widget: wires services and controllers (Provider), screen scaling
-/// (ScreenUtil), routing (go_router) and the theme.
+// Root widget: wires services and controllers (Provider), screen scaling
+// (ScreenUtil), routing (go_router) and the theme.
 class KitchenaryApp extends StatelessWidget {
   const KitchenaryApp({required this.store, super.key});
 
-  /// The opened on-device store (see `HiveLocalStore`).
+  // The opened on-device store (see 'HiveLocalStore').
   final LocalStore store;
 
-  /// Layout is designed at this size (logical pixels); everything scales.
+  // Layout is designed at this size (logical pixels); everything scales.
   static const Size designSize = Size(390, 844);
 
-  /// Status and navigation bar icons that stay readable on the page colour:
-  /// dark icons on the light theme, light icons on the dark theme.
+  // Status and navigation bar icons that stay readable on the page colour:
+  // dark icons on the light theme, light icons on the dark theme.
   static SystemUiOverlayStyle _systemBars(Brightness theme) {
     final icons = theme == Brightness.dark ? Brightness.light : Brightness.dark;
     return SystemUiOverlayStyle(
@@ -84,6 +86,9 @@ class KitchenaryApp extends StatelessWidget {
         ),
         Provider<AlarmSoundService>(
           create: (_) => const PlatformAlarmSoundService(),
+        ),
+        Provider<PhotoCacheService>(
+          create: (_) => CacheManagerPhotoCacheService(),
         ),
         // Controllers
         ChangeNotifierProvider<SettingsController>(

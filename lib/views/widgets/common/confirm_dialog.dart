@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:kitchenary/core/extensions/context_extensions.dart';
 
-/// A yes / no dialog. Use [show]; it returns true only when confirmed.
+// A yes / no dialog. Use [show]; it returns true only when confirmed.
 class ConfirmDialog extends StatelessWidget {
   const ConfirmDialog({
     required this.title,

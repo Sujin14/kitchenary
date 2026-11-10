@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-/// The content of one onboarding page.
+// The content of one onboarding page.
 class OnboardingPage {
   const OnboardingPage({
     required this.icon,

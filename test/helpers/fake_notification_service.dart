@@ -7,7 +7,7 @@ class ScheduledNotification {
   final DateTime at;
 }
 
-/// Records what would have been scheduled.
+// Records what would have been scheduled.
 class FakeNotificationService implements NotificationService {
   FakeNotificationService({this.allowed = true});
 
